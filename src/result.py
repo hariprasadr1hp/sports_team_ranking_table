@@ -4,8 +4,7 @@ import enum
 import os
 import re
 from dataclasses import InitVar, dataclass, field
-from pprint import pprint
-from typing import Callable, Dict, List, NewType, Optional, Pattern
+from typing import Callable, Dict, List, NewType, Pattern
 
 Path = NewType('Path', str)
 
@@ -124,6 +123,7 @@ class Match:
 class Tournament:
     fname: InitVar[Path] = field(repr=False)
     name: str = "Bundesliga"
+    # teams: Dict[str, Team] = field(init=False, default_factory=dict)
     teams: Dict[str, Team] = field(init=False, default_factory=dict)
     matches: List[Match] = field(init=False, default_factory=list)
 
@@ -139,10 +139,10 @@ class Tournament:
         return matches
 
     def writeOutput(self):
+        table = sorted(self.teams.values(), reverse=True)
         i: int = 1
-        for k,v in self.teams.items():
-            print("{}. {}, {} pts".format(i, k, v.record.points))
-            i += 1
+        for i, team in enumerate(table, start=1):
+            print("{}. {}, {} pts".format(i, team.name, team.record.points))
 
     def readInput(self) -> None:
         with open(self.fname, 'r') as rf:
@@ -158,9 +158,6 @@ class Tournament:
                     self.teams[name] = Team(name, Record())
                 self.teams[name].record.add_result(match.teamB.result)
 
-        # pprint(self.teams)
-        # print()
-        # pprint([self.teams[i] for i in sorted(self.teams, reverse=True)])
         self.writeOutput()
 
     def __post_init__(self, fname: Path) -> None:
