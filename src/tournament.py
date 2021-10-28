@@ -1,25 +1,41 @@
 import os
 import re
+import sys
 from dataclasses import InitVar, dataclass, field
 from typing import Dict, List, NewType, Pattern
 
+from src.io_handler import IOHandler, ReadWriteOper
 from src.match import Match
 from src.record import Record
 from src.team import Team
 
-Path = NewType('Path', str)
+# Path = NewType('Path', str)
 
+class Path(str):
+    def __init__(self, path: str) -> None:
+        super().__init__()
+        try:
+            self.path = self.validatePath(path)
+        except FileNotFoundError:
+            print("Path '{path}' not found".format(path=path))
+            sys.exit()
+    
+    @staticmethod
+    def validatePath(path):
+        if os.path.exists(path):
+            return path
+        raise FileNotFoundError
 
 @dataclass
 class Tournament:
     fname: InitVar[Path] = field(repr=False)
     name: str = "Bundesliga"
-    # teams: Dict[str, Team] = field(init=False, default_factory=dict)
     teams: Dict[str, Team] = field(init=False, default_factory=dict)
     matches: List[Match] = field(init=False, default_factory=list)
 
     @property
-    def played_matches(self):
+    def played(self):
+        """ total matches played """
         return len(self.matches)
 
     @staticmethod
@@ -42,19 +58,21 @@ class Tournament:
                 self.matches.append(match)
 
                 if (name := match.teamA.name) not in self.teams:
-                    self.teams[name] = Team(name, Record())
+                    self.teams[name] = Team(name)
                 self.teams[name].record.add_result(match.teamA.result)
 
                 if (name := match.teamB.name) not in self.teams:
-                    self.teams[name] = Team(name, Record())
+                    self.teams[name] = Team(name)
                 self.teams[name].record.add_result(match.teamB.result)
 
         self.writeOutput()
 
     def __post_init__(self, fname: Path) -> None:
-        if os.path.exists(fname):
-            self.fname = fname
-            # self.teams: Dict[str, Team] = {}
-            self.readInput()
-        else:
-            raise FileNotFoundError("Input file '{}' not found".format(fname))
+        self.fname = fname
+        self.readInput()
+
+        # if os.path.exists(fname):
+        #     self.fname = fname
+        #     self.readInput()
+        # else:
+        #     raise FileNotFoundError("Input file '{}' not found".format(fname))

@@ -6,6 +6,11 @@ from src.result import Result
 
 @dataclass(order=True)
 class Record:
+    """
+    A counter for the wins, draws and losses
+    
+    sorted[wins < points]
+    """
     sort_points: int = field(init=False, repr=False)
     sort_wins: int = field(init=False, repr=False)
     wins: int = 0
