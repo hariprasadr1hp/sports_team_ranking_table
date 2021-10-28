@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+  <!-- 2021-10-28 Thu 12:48 -->
+  <meta http-equiv="Content-Type" content=
+  "text/html; charset=utf-8" />
+  <meta name="viewport" content=
+  "width=device-width, initial-scale=1" />
+  <title>Ranking Table for a Sports league</title>
+  <meta name="author" content="Hari Prasad Radhakrishnan" />
+  <meta name="generator" content="Org Mode" />
+  <style>
+  <![CDATA[
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  ]]>
+  </style>
+  <link rel="stylesheet" type="text/css" href=
+  "https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css" />
+  <link rel="stylesheet" type="text/css" href=
+  "https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css" />
+
+  <script src=
+  "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src=
+  "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src=
+  "https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+  <script type="text/javascript" src=
+  "https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+</head>
+<body>
+  <div id="content" class="content">
+    <h1 class="title">Ranking Table for a Sports league</h1>
+    <div id="table-of-contents" role="doc-toc">
+      <h2>Table of Contents</h2>
+      <div id="text-table-of-contents" role="doc-toc">
+        <ul>
+          <li><a href="#orgd57a580">1. Introduction</a></li>
+          <li>
+            <a href="#orgec34d91">2. Expected</a>
+            <ul>
+              <li><a href="#org0dcaf76">2.1. Thank you for your
+              interest</a></li>
+              <li><a href="#orgc25aea9">2.2. What we look
+              for</a></li>
+              <li><a href="#orged07441">2.3. When you are
+              finished</a></li>
+              <li><a href="#orgdcab02b">2.4. The Problem</a></li>
+              <li><a href="#org4a24a90">2.5. Input/output</a></li>
+              <li><a href="#org6678cac">2.6. The rules</a></li>
+              <li><a href="#org553ae89">2.7. Guidelines</a></li>
+              <li><a href="#org00ab30e">2.8. Platform
+              support</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="outline-container-orgd57a580" class="outline-2">
+      <h2 id="orgd57a580"><span class="section-number-2">1.</span>
+      Introduction</h2>
+      <div class="outline-text-2" id="text-1">
+        <div class="org-src-container">
+          <pre class="src src-python"><span style=
+          "color: #51afef;">import</span> re
+<span style="color: #51afef;">from</span> dataclasses <span style=
+"color: #51afef;">import</span> InitVar, dataclass, field
+<span style="color: #51afef;">from</span> pathlib <span style=
+"color: #51afef;">import</span> Path
+<span style="color: #51afef;">from</span> typing <span style=
+"color: #51afef;">import</span> Dict, List, NewType, Pattern
+
+<span style=
+"color: #51afef;">from</span> src.io_handler <span style=
+"color: #51afef;">import</span> IOHandler, ReadTo, WriteTo
+<span style="color: #51afef;">from</span> src.match <span style=
+"color: #51afef;">import</span> Match
+<span style="color: #51afef;">from</span> src.team <span style=
+"color: #51afef;">import</span> Team
+
+
+<span style="color: #ECBE7B;">@dataclass</span>
+<span style="color: #51afef;">class</span> <span style=
+"color: #ECBE7B;">Tournament</span>:
+    fname: <span style=
+"color: #dcaeea;">InitVar</span>[Path] = field(<span style=
+"color: #c678dd;">repr</span>=<span style=
+"color: #a9a1e1;">False</span>)
+    name: <span style="color: #c678dd;">str</span> = <span style=
+"color: #98be65;">"Bundesliga"</span>
+    teams: <span style="color: #dcaeea;">Dict</span>[<span style=
+"color: #c678dd;">str</span>, Team] = field(init=<span style=
+"color: #a9a1e1;">False</span>, default_factory=<span style=
+"color: #c678dd;">dict</span>)
+    matches: <span style=
+"color: #dcaeea;">List</span>[Match] = field(init=<span style=
+"color: #a9a1e1;">False</span>, default_factory=<span style=
+"color: #c678dd;">list</span>)
+
+    @<span style="color: #c678dd;">property</span>
+    <span style="color: #51afef;">def</span> <span style=
+"color: #c678dd;">played</span>(<span style=
+"color: #51afef;">self</span>):
+        <span style=
+"color: #83898d;">""" total matches played """</span>
+        <span style="color: #51afef;">return</span> <span style=
+"color: #c678dd;">len</span>(<span style=
+"color: #51afef;">self</span>.matches)
+
+    @<span style="color: #c678dd;">staticmethod</span>
+    <span style="color: #51afef;">def</span> <span style=
+"color: #c678dd;">parseLine</span>(line: <span style=
+"color: #c678dd;">str</span>):
+        <span style=
+"color: #dcaeea;">pattern</span> = r<span style="color: #98be65;">'\s*(.+)\s+(\d)\s*,\s*(.+)\s+(\d)\s*'</span>
+        regex: <span style=
+"color: #dcaeea;">Pattern</span>[<span style=
+"color: #c678dd;">str</span>] = re.<span style=
+"color: #c678dd;">compile</span>(pattern=pattern)
+        <span style=
+"color: #dcaeea;">matches</span> = regex.findall(line)[<span style=
+"color: #da8548; font-weight: bold;">0</span>]
+        <span style="color: #51afef;">return</span> matches
+
+    <span style="color: #51afef;">def</span> <span style=
+"color: #c678dd;">writeOutput</span>(<span style=
+"color: #51afef;">self</span>):
+        <span style="color: #dcaeea;">table</span> = <span style=
+"color: #c678dd;">sorted</span>(<span style=
+"color: #51afef;">self</span>.teams.values(), reverse=<span style=
+"color: #a9a1e1;">True</span>)
+        WriteTo(table)
+        <span style="color: #5B6268;"># </span><span style=
+"color: #5B6268;">i: int = 1</span>
+        <span style="color: #5B6268;"># </span><span style=
+"color: #5B6268;">for i, team in enumerate(table, start=1):</span>
+        <span style="color: #5B6268;">#     </span><span style=
+"color: #5B6268;">print("{}. {}, {} pts".format(i, team.name, team.record.points))</span>
+
+    <span style="color: #51afef;">def</span> <span style=
+"color: #c678dd;">readInput</span>(<span style=
+"color: #51afef;">self</span>) -&gt; <span style=
+"color: #a9a1e1;">None</span>:
+        <span style="color: #51afef;">with</span> <span style=
+"color: #c678dd;">open</span>(<span style=
+"color: #51afef;">self</span>.fname, <span style=
+"color: #98be65;">'r'</span>) <span style=
+"color: #51afef;">as</span> rf:
+            <span style=
+"color: #51afef;">for</span> line <span style=
+"color: #51afef;">in</span> rf:
+                <span style=
+"color: #dcaeea;">match</span> = Match.fromString(line)
+                <span style=
+"color: #51afef;">self</span>.matches.append(match)
+
+                <span style=
+"color: #51afef;">if</span> (name := match.teamA.name) <span style=
+"color: #51afef;">not</span> <span style=
+"color: #51afef;">in</span> <span style=
+"color: #51afef;">self</span>.teams:
+                    <span style=
+"color: #51afef;">self</span>.teams[name] = Team(name)
+                <span style=
+"color: #51afef;">self</span>.teams[name].record.add_result(match.teamA.result)
+
+                <span style=
+"color: #51afef;">if</span> (name := match.teamB.name) <span style=
+"color: #51afef;">not</span> <span style=
+"color: #51afef;">in</span> <span style=
+"color: #51afef;">self</span>.teams:
+                    <span style=
+"color: #51afef;">self</span>.teams[name] = Team(name)
+                <span style=
+"color: #51afef;">self</span>.teams[name].record.add_result(match.teamB.result)
+
+        <span style="color: #51afef;">self</span>.writeOutput()
+
+    <span style="color: #51afef;">def</span> <span style=
+"color: #c678dd;">__post_init__</span>(<span style=
+"color: #51afef;">self</span>, fname: Path) -&gt; <span style=
+"color: #a9a1e1;">None</span>:
+        <span style="color: #51afef;">self</span>.fname = fname
+        <span style="color: #51afef;">self</span>.readInput()
+
+        <span style="color: #5B6268;"># </span><span style=
+"color: #5B6268;">if os.path.exists(fname):</span>
+        <span style="color: #5B6268;">#     </span><span style=
+"color: #5B6268;">self.fname = fname</span>
+        <span style="color: #5B6268;">#     </span><span style=
+"color: #5B6268;">self.readInput()</span>
+        <span style="color: #5B6268;"># </span><span style=
+"color: #5B6268;">else:</span>
+        <span style="color: #5B6268;">#     </span><span style=
+"color: #5B6268;">raise FileNotFoundError("Input file '{}' not found".format(fname))</span>
+</pre>
+        </div>
+        <div class="org-src-container">
+          <pre class="src src-python"><span style=
+          "color: #51afef;">from</span> pathlib <span style=
+          "color: #51afef;">import</span> Path
+<span style=
+"color: #51afef;">from</span> src.tournament <span style=
+"color: #51afef;">import</span> Tournament
+
+<span style="color: #dcaeea;">path</span> = Path(<span style=
+"color: #98be65;">"data/sample-input.txt"</span>)
+<span style="color: #dcaeea;">table</span> = Tournament(path)
+table
+</pre>
+        </div>
+        <pre class="example">
+Tournament(name='Bundesliga', teams={'Crazy Ones': Team(name='Crazy Ones', record=Record(wins=1, draws=2, losses=0)), 'Rebels': Team(name='Rebels', record=Record(wins=0, draws=1, losses=1)), 'Fantastics': Team(name='Fantastics', record=Record(wins=2, draws=0, losses=0)), 'FC Super': Team(name='FC Super', record=Record(wins=0, draws=1, losses=1)), 'Misfits': Team(name='Misfits', record=Record(wins=0, draws=0, losses=1))}, matches=[Match(teamA=TeamOnMatchDay(name='Crazy Ones', goals='3'), teamB=TeamOnMatchDay(name='Rebels', goals='3')), Match(teamA=TeamOnMatchDay(name='Fantastics', goals='1'), teamB=TeamOnMatchDay(name='FC Super', goals='0')), Match(teamA=TeamOnMatchDay(name='Crazy Ones', goals='1'), teamB=TeamOnMatchDay(name='FC Super', goals='1')), Match(teamA=TeamOnMatchDay(name='Fantastics', goals='3'), teamB=TeamOnMatchDay(name='Rebels', goals='1')), Match(teamA=TeamOnMatchDay(name='Crazy Ones', goals='4'), teamB=TeamOnMatchDay(name='Misfits', goals='0'))])
+</pre>
+      </div>
+    </div>
+    <div id="outline-container-orgec34d91" class="outline-2">
+      <h2 id="orgec34d91"><span class="section-number-2">2.</span>
+      Expected</h2>
+      <div class="outline-text-2" id="text-2"></div>
+      <div id="outline-container-org0dcaf76" class="outline-3">
+        <h3 id="org0dcaf76"><span class=
+        "section-number-3">2.1.</span> Thank you for your
+        interest</h3>
+        <div class="outline-text-3" id="text-2-1">
+          <p>Your submission will be run in a clean environment to
+          see if it produces the expected output. Please provide
+          instructions for installing any dependencies.</p>
+        </div>
+      </div>
+      <div id="outline-container-orgc25aea9" class="outline-3">
+        <h3 id="orgc25aea9"><span class=
+        "section-number-3">2.2.</span> What we look for</h3>
+        <div class="outline-text-3" id="text-2-2">
+          <p>We will be looking at the quality and professionalism
+          of your work. In particular we look for clean,
+          well-designed, maintainable code. Although this is a
+          rather small task, it should be approached as you would
+          an actual task for a customer.</p>
+          <p>We would like to see some architecture, but only as
+          much as reasonable. Your code shuold be easily extensible
+          without burdensome abstractions.</p>
+        </div>
+      </div>
+      <div id="outline-container-orged07441" class="outline-3">
+        <h3 id="orged07441"><span class=
+        "section-number-3">2.3.</span> When you are finished</h3>
+        <div class="outline-text-3" id="text-2-3">
+          <p>Please create a zip archive with your solution and
+          send it to us.</p>
+        </div>
+      </div>
+      <div id="outline-container-orgdcab02b" class="outline-3">
+        <h3 id="orgdcab02b"><span class=
+        "section-number-3">2.4.</span> The Problem</h3>
+        <div class="outline-text-3" id="text-2-4">
+          <p>We want you to create a command-line application that
+          will calculate the ranking table for a sports league.</p>
+        </div>
+      </div>
+      <div id="outline-container-org4a24a90" class="outline-3">
+        <h3 id="org4a24a90"><span class=
+        "section-number-3">2.5.</span> Input/output</h3>
+        <div class="outline-text-3" id="text-2-5">
+          <p>The input and output will be text. Your solution
+          should parse the provided sample-input.txt file via stdin
+          (pipe or redirect) or by parsing a file passed by name on
+          the command line. Your solution should output the correct
+          result via stdout to the console.</p>
+          <p>The input contains results of games, one per line. See
+          sample-input.txt for details. The output should be
+          ordered from most to least points, following the format
+          specified in expected-output.txt.</p>
+          <p>You can expect that the input will be well-formed.
+          There is no need to add special handling for malformed
+          input files.</p>
+        </div>
+      </div>
+      <div id="outline-container-org6678cac" class="outline-3">
+        <h3 id="org6678cac"><span class=
+        "section-number-3">2.6.</span> The rules</h3>
+        <div class="outline-text-3" id="text-2-6">
+          <p>A draw (tie) is worth 1 point and a win is worth 3
+          points. A loss is worth 0 points. If two or more teams
+          have the same number of points, they should have the same
+          rank and be printed in alphabetical order (as in the tie
+          for 3rd place in the sample data).</p>
+        </div>
+      </div>
+      <div id="outline-container-org553ae89" class="outline-3">
+        <h3 id="org553ae89"><span class=
+        "section-number-3">2.7.</span> Guidelines</h3>
+        <div class="outline-text-3" id="text-2-7">
+          <p>This should be implemented in Python 3.</p>
+          <p>Your solution should be able to be run from the
+          command line. Please include appropriate scripts and
+          instructions for running your application and your
+          tests.</p>
+          <p>We write automated tests, and we would like you to do
+          so as well.</p>
+          <p>We appreciate well factored, object-oriented or
+          functional designs.</p>
+          <p>Please document any steps necessary to run your
+          solution and your tests.</p>
+        </div>
+      </div>
+      <div id="outline-container-org00ab30e" class="outline-3">
+        <h3 id="org00ab30e"><span class=
+        "section-number-3">2.8.</span> Platform support</h3>
+        <div class="outline-text-3" id="text-2-8">
+          <p>This will be run in a unix-ish environment (OS X).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="postamble" class="status">
+    <p class="author">Author: Hari Prasad Radhakrishnan</p>
+    <p class="date">Created: 2021-10-28 Thu 12:48</p>
+  </div>
+</body>
+</html>
