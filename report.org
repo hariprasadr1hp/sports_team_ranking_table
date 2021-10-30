@@ -9,21 +9,454 @@
 #+HTML_HEAD: <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
 #+HTML_HEAD: <script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
 
-* Introduction
-#+include: "src/tournament.py" src python
+#+HTML_HEAD_EXTRA: <style>*{font-family: serif !important}</style>
 
-#+headers: :exports both :session tigerlab
-#+begin_src python
-from pathlib import Path
-from src.tournament import Tournament
-from pprint
+* Problem Definition
+** Objective
+A command-line application that calculates ranking table for a sports league.
 
-path = Path("data/sample-input.txt")
-epl = Tournament(path)
-epl.
+** Rules
++ A draw (tie) is worth 1 point and a win is worth 3 points
++ A loss is worth 0 points
++ If two or more teams have same number of points, they should have the same rank and printed in alphabetical order
+
+** Sample
+#+include: "question/sample-input.txt" src txt
+#+include: "question/expected-output.txt" src txt
+
+* Manual
+** To run the code
++ ~python main.py --input={{input-file}}~
+
+#+begin_src bash :exports both :results scalar
+python main.py --input="data/sample-input.txt"
 #+end_src
 
 #+RESULTS:
+: 1. Fantastics, 6 pts
+: 2. Crazy Ones, 5 pts
+: 3. Rebels, 1 pts
+: 4. FC Super, 1 pts
+: 5. Misfits, 0 pts
+
+** Testing Module
+#+begin_src bash :exports both :results scalar
+pytest -q
+#+end_src
+
+#+RESULTS:
+: .........                                                                [100%]
+: 9 passed in 0.71s
+
+** Complete Test Statistics
+#+begin_src bash :eval no
+pytest --hypothesis-show-statistics
+#+end_src
+
+* Code Architecture
+** =src/= directory
+#+begin_src bash :exports both :results scalar
+tree src/
+#+end_src
+
+#+RESULTS:
+#+begin_example
+src/
+├── __init__.py
+├── io_handler.py
+├── match.py
+├── __pycache__
+│   ├── __init__.cpython-38.pyc
+│   ├── io_handler.cpython-38.pyc
+│   ├── match.cpython-38.pyc
+│   ├── record.cpython-38.pyc
+│   ├── result.cpython-38.pyc
+│   ├── scores.cpython-38.pyc
+│   ├── team.cpython-38.pyc
+│   ├── team_on_match_day.cpython-38.pyc
+│   └── tournament.cpython-38.pyc
+├── record.py
+├── result.py
+├── team_on_match_day.py
+├── team.py
+└── tournament.py
+
+1 directory, 17 files
+#+end_example
+
+** Class Diagram
+#+include: "data/class_diagram.puml" src plantuml :file data/class_diagram.svg
+
+** Sequence Diagram
+#+include: "data/sequence_diagram.puml" src plantuml :file data/sequence_diagram.svg
+
+* Tests
+** =tests/= directory
+#+begin_src bash :exports both :results scalar
+tree tests/
+#+end_src
+
+#+RESULTS:
+#+begin_example
+tests/
+├── __init__.py
+├── __pycache__
+│   ├── __init__.cpython-38.pyc
+│   ├── test_basic.cpython-38-pytest-6.2.4.pyc
+│   ├── test_epl.cpython-38-pytest-6.2.4.pyc
+│   ├── test_example.cpython-38-pytest-6.2.4.pyc
+│   ├── test_model.cpython-38-pytest-6.2.4.pyc
+│   ├── test_premilinary.cpython-38-pytest-6.2.4.pyc
+│   ├── test_ranking.cpython-38-pytest-6.2.4.pyc
+│   └── test_record.cpython-38-pytest-6.2.4.pyc
+├── test_basic.py
+├── test_epl.py
+├── test_match
+├── test_model.py
+└── test_record.py
+
+1 directory, 14 files
+#+end_example
+
+** Test Cases
+*** whether the solution with input =data/sample-input.txt= matches =data/expected-output.txt=
+#+begin_src bash :exports both :results scalar
+pytest -k sample_data
+#+end_src
+
+#+RESULTS:
+: .                                                                        [100%]
+: 1 passed, 9 deselected in 0.03s
+
+*** if the rules are properly applied
++ the gathered points can never be greater than the maximum achievable points (3 * matches)
+
+#+begin_src bash :exports both :results scalar
+pytest -q -k rules --hypothesis-show-statistics
+#+end_src
+
+#+RESULTS:
+#+begin_example
+.                                                                        [100%]
+============================ Hypothesis Statistics =============================
+tests/test_basic.py::test_rules:
+
+  - during generate phase (0.10 seconds):
+    - Typical runtimes: < 1ms, ~ 38% in data generation
+    - 100 passing examples, 0 failing examples, 0 invalid examples
+    - Events:
+      ,* 2.00%, (28, 28, 28) (wins, draws, losses) results 112 points (max 252)
+      ,* 2.00%, (47, 47, 35) (wins, draws, losses) results 188 points (max 387)
+      ,* 2.00%, (54, 54, 54) (wins, draws, losses) results 216 points (max 486)
+      ,* 1.00%, (0, 0, 0) (wins, draws, losses) results 0 points (max 0)
+      ,* 1.00%, (0, 0, 37) (wins, draws, losses) results 0 points (max 111)
+      ,* 1.00%, (0, 93, 37) (wins, draws, losses) results 93 points (max 390)
+      ,* 1.00%, (13, 13, 13) (wins, draws, losses) results 52 points (max 117)
+      ,* 1.00%, (13, 18, 13) (wins, draws, losses) results 57 points (max 132)
+      ,* 1.00%, (13, 78, 27) (wins, draws, losses) results 117 points (max 354)
+      ,* 1.00%, (14, 14, 14) (wins, draws, losses) results 56 points (max 126)
+      ,* 1.00%, (14, 14, 94) (wins, draws, losses) results 56 points (max 366)
+      ,* 1.00%, (17, 17, 17) (wins, draws, losses) results 68 points (max 153)
+      ,* 1.00%, (17, 7, 73) (wins, draws, losses) results 58 points (max 291)
+      ,* 1.00%, (17, 73, 17) (wins, draws, losses) results 124 points (max 321)
+      ,* 1.00%, (17, 73, 73) (wins, draws, losses) results 124 points (max 489)
+      ,* 1.00%, (19, 0, 0) (wins, draws, losses) results 57 points (max 57)
+      ,* 1.00%, (19, 17, 17) (wins, draws, losses) results 74 points (max 159)
+      ,* 1.00%, (19, 17, 28) (wins, draws, losses) results 74 points (max 192)
+      ,* 1.00%, (19, 50, 0) (wins, draws, losses) results 107 points (max 207)
+      ,* 1.00%, (19, 50, 19) (wins, draws, losses) results 107 points (max 264)
+      ,* 1.00%, (19, 50, 91) (wins, draws, losses) results 107 points (max 480)
+      ,* 1.00%, (19, 62, 99) (wins, draws, losses) results 119 points (max 540)
+      ,* 1.00%, (20, 20, 20) (wins, draws, losses) results 80 points (max 180)
+      ,* 1.00%, (21, 21, 21) (wins, draws, losses) results 84 points (max 189)
+      ,* 1.00%, (27, 27, 27) (wins, draws, losses) results 108 points (max 243)
+      ,* 1.00%, (27, 78, 27) (wins, draws, losses) results 159 points (max 396)
+      ,* 1.00%, (28, 28, 7) (wins, draws, losses) results 112 points (max 189)
+      ,* 1.00%, (32, 32, 32) (wins, draws, losses) results 128 points (max 288)
+      ,* 1.00%, (32, 79, 32) (wins, draws, losses) results 175 points (max 429)
+      ,* 1.00%, (32, 79, 43) (wins, draws, losses) results 175 points (max 462)
+      ,* 1.00%, (33, 52, 9) (wins, draws, losses) results 151 points (max 282)
+      ,* 1.00%, (33, 9, 95) (wins, draws, losses) results 108 points (max 411)
+      ,* 1.00%, (35, 35, 35) (wins, draws, losses) results 140 points (max 315)
+      ,* 1.00%, (35, 35, 47) (wins, draws, losses) results 140 points (max 351)
+      ,* 1.00%, (35, 8, 35) (wins, draws, losses) results 113 points (max 234)
+      ,* 1.00%, (37, 20, 20) (wins, draws, losses) results 131 points (max 231)
+      ,* 1.00%, (37, 93, 20) (wins, draws, losses) results 204 points (max 450)
+      ,* 1.00%, (38, 0, 0) (wins, draws, losses) results 114 points (max 114)
+      ,* 1.00%, (38, 52, 11) (wins, draws, losses) results 166 points (max 303)
+      ,* 1.00%, (40, 40, 82) (wins, draws, losses) results 160 points (max 486)
+      ,* 1.00%, (40, 82, 82) (wins, draws, losses) results 202 points (max 612)
+      ,* 1.00%, (42, 0, 0) (wins, draws, losses) results 126 points (max 126)
+      ,* 1.00%, (42, 0, 9) (wins, draws, losses) results 126 points (max 153)
+      ,* 1.00%, (43, 43, 43) (wins, draws, losses) results 172 points (max 387)
+      ,* 1.00%, (43, 43, 57) (wins, draws, losses) results 172 points (max 429)
+      ,* 1.00%, (43, 57, 57) (wins, draws, losses) results 186 points (max 471)
+      ,* 1.00%, (44, 44, 44) (wins, draws, losses) results 176 points (max 396)
+      ,* 1.00%, (44, 49, 44) (wins, draws, losses) results 181 points (max 411)
+      ,* 1.00%, (46, 21, 21) (wins, draws, losses) results 159 points (max 264)
+      ,* 1.00%, (46, 21, 46) (wins, draws, losses) results 159 points (max 339)
+      ,* 1.00%, (46, 21, 82) (wins, draws, losses) results 159 points (max 447)
+      ,* 1.00%, (46, 43, 57) (wins, draws, losses) results 181 points (max 438)
+      ,* 1.00%, (47, 35, 35) (wins, draws, losses) results 176 points (max 351)
+      ,* 1.00%, (47, 35, 47) (wins, draws, losses) results 176 points (max 387)
+      ,* 1.00%, (48, 90, 8) (wins, draws, losses) results 234 points (max 438)
+      ,* 1.00%, (50, 49, 44) (wins, draws, losses) results 199 points (max 429)
+      ,* 1.00%, (50, 50, 19) (wins, draws, losses) results 200 points (max 357)
+      ,* 1.00%, (50, 50, 50) (wins, draws, losses) results 200 points (max 450)
+      ,* 1.00%, (51, 51, 38) (wins, draws, losses) results 204 points (max 420)
+      ,* 1.00%, (54, 43, 54) (wins, draws, losses) results 205 points (max 453)
+      ,* 1.00%, (54, 54, 17) (wins, draws, losses) results 216 points (max 375)
+      ,* 1.00%, (55, 13, 13) (wins, draws, losses) results 178 points (max 243)
+      ,* 1.00%, (55, 13, 24) (wins, draws, losses) results 178 points (max 276)
+      ,* 1.00%, (55, 2, 55) (wins, draws, losses) results 167 points (max 336)
+      ,* 1.00%, (55, 55, 55) (wins, draws, losses) results 220 points (max 495)
+      ,* 1.00%, (57, 8, 35) (wins, draws, losses) results 179 points (max 300)
+      ,* 1.00%, (6, 16, 64) (wins, draws, losses) results 34 points (max 258)
+      ,* 1.00%, (6, 28, 7) (wins, draws, losses) results 46 points (max 123)
+      ,* 1.00%, (6, 64, 64) (wins, draws, losses) results 82 points (max 402)
+      ,* 1.00%, (6, 97, 72) (wins, draws, losses) results 115 points (max 525)
+      ,* 1.00%, (61, 40, 82) (wins, draws, losses) results 223 points (max 549)
+      ,* 1.00%, (64, 32, 13) (wins, draws, losses) results 224 points (max 327)
+      ,* 1.00%, (64, 64, 13) (wins, draws, losses) results 256 points (max 423)
+      ,* 1.00%, (64, 64, 64) (wins, draws, losses) results 256 points (max 576)
+      ,* 1.00%, (67, 51, 38) (wins, draws, losses) results 252 points (max 468)
+      ,* 1.00%, (72, 72, 72) (wins, draws, losses) results 288 points (max 648)
+      ,* 1.00%, (72, 97, 72) (wins, draws, losses) results 313 points (max 723)
+      ,* 1.00%, (73, 69, 8) (wins, draws, losses) results 288 points (max 450)
+      ,* 1.00%, (73, 73, 73) (wins, draws, losses) results 292 points (max 657)
+      ,* 1.00%, (73, 73, 8) (wins, draws, losses) results 292 points (max 462)
+      ,* 1.00%, (79, 0, 0) (wins, draws, losses) results 237 points (max 237)
+      ,* 1.00%, (79, 19, 52) (wins, draws, losses) results 256 points (max 450)
+      ,* 1.00%, (8, 35, 57) (wins, draws, losses) results 59 points (max 300)
+      ,* 1.00%, (8, 8, 35) (wins, draws, losses) results 32 points (max 153)
+      ,* 1.00%, (82, 43, 54) (wins, draws, losses) results 289 points (max 537)
+      ,* 1.00%, (82, 82, 43) (wins, draws, losses) results 328 points (max 621)
+      ,* 1.00%, (82, 82, 82) (wins, draws, losses) results 328 points (max 738)
+      ,* 1.00%, (86, 14, 94) (wins, draws, losses) results 272 points (max 582)
+      ,* 1.00%, (86, 18, 13) (wins, draws, losses) results 276 points (max 351)
+      ,* 1.00%, (86, 54, 17) (wins, draws, losses) results 312 points (max 471)
+      ,* 1.00%, (89, 2, 55) (wins, draws, losses) results 269 points (max 438)
+      ,* 1.00%, (9, 47, 35) (wins, draws, losses) results 74 points (max 273)
+      ,* 1.00%, (90, 90, 8) (wins, draws, losses) results 360 points (max 564)
+      ,* 1.00%, (90, 90, 90) (wins, draws, losses) results 360 points (max 810)
+      ,* 1.00%, (93, 20, 37) (wins, draws, losses) results 299 points (max 450)
+      ,* 1.00%, (93, 44, 32) (wins, draws, losses) results 323 points (max 507)
+      ,* 1.00%, (93, 44, 44) (wins, draws, losses) results 323 points (max 543)
+
+  - Stopped because settings.max_examples=100
+
+
+1 passed, 9 deselected in 0.13s
+#+end_example
+
+*** if the match results are properly calibrated
+#+begin_src bash :exports both :results scalar
+pytest -q -k match_results --hypothesis-show-statistics
+#+end_src
+
+#+RESULTS:
+#+begin_example
+.                                                                        [100%]
+============================ Hypothesis Statistics =============================
+tests/test_match.py::test_match_results:
+
+  - during reuse phase (0.00 seconds):
+    - Typical runtimes: < 1ms, ~ 42% in data generation
+    - 1 passing examples, 0 failing examples, 0 invalid examples
+
+  - during generate phase (0.12 seconds):
+    - Typical runtimes: < 1ms, ~ 51% in data generation
+    - 99 passing examples, 0 failing examples, 0 invalid examples
+    - Events:
+      ,* 8.08%, A(8) vs B(4) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 6.06%, A(6) vs B(16) ==> A: Result.LOSS --- B: Result.WIN
+      ,* 6.06%, A(9) vs B(4) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 5.05%, A(16) vs B(16) ==> A: Result.DRAW --- B: Result.DRAW
+      ,* 4.04%, A(4) vs B(4) ==> A: Result.DRAW --- B: Result.DRAW
+      ,* 4.04%, A(7) vs B(6) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 3.03%, A(11) vs B(4) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 3.03%, A(13) vs B(13) ==> A: Result.DRAW --- B: Result.DRAW
+      ,* 3.03%, A(13) vs B(2) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 3.03%, A(17) vs B(17) ==> A: Result.DRAW --- B: Result.DRAW
+      ,* 3.03%, A(19) vs B(7) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 2.02%, A(0) vs B(0) ==> A: Result.DRAW --- B: Result.DRAW
+      ,* 2.02%, A(11) vs B(7) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 2.02%, A(13) vs B(7) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 2.02%, A(14) vs B(4) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 2.02%, A(18) vs B(2) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 2.02%, A(19) vs B(19) ==> A: Result.DRAW --- B: Result.DRAW
+      ,* 2.02%, A(19) vs B(6) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 2.02%, A(6) vs B(6) ==> A: Result.DRAW --- B: Result.DRAW
+      ,* 2.02%, A(7) vs B(4) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 2.02%, A(9) vs B(0) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 1.01%, A(0) vs B(13) ==> A: Result.LOSS --- B: Result.WIN
+      ,* 1.01%, A(0) vs B(6) ==> A: Result.LOSS --- B: Result.WIN
+      ,* 1.01%, A(1) vs B(2) ==> A: Result.LOSS --- B: Result.WIN
+      ,* 1.01%, A(10) vs B(18) ==> A: Result.LOSS --- B: Result.WIN
+      ,* 1.01%, A(14) vs B(0) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 1.01%, A(14) vs B(10) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 1.01%, A(14) vs B(20) ==> A: Result.LOSS --- B: Result.WIN
+      ,* 1.01%, A(14) vs B(5) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 1.01%, A(15) vs B(10) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 1.01%, A(17) vs B(0) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 1.01%, A(17) vs B(6) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 1.01%, A(18) vs B(10) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 1.01%, A(18) vs B(6) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 1.01%, A(18) vs B(7) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 1.01%, A(19) vs B(10) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 1.01%, A(19) vs B(16) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 1.01%, A(19) vs B(5) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 1.01%, A(20) vs B(0) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 1.01%, A(20) vs B(10) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 1.01%, A(20) vs B(4) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 1.01%, A(3) vs B(14) ==> A: Result.LOSS --- B: Result.WIN
+      ,* 1.01%, A(4) vs B(18) ==> A: Result.LOSS --- B: Result.WIN
+      ,* 1.01%, A(5) vs B(0) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 1.01%, A(5) vs B(10) ==> A: Result.LOSS --- B: Result.WIN
+      ,* 1.01%, A(5) vs B(3) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 1.01%, A(6) vs B(3) ==> A: Result.WIN --- B: Result.LOSS
+      ,* 1.01%, A(7) vs B(16) ==> A: Result.LOSS --- B: Result.WIN
+      ,* 1.01%, A(8) vs B(10) ==> A: Result.LOSS --- B: Result.WIN
+      ,* 1.01%, A(9) vs B(11) ==> A: Result.LOSS --- B: Result.WIN
+      ,* 1.01%, A(9) vs B(19) ==> A: Result.LOSS --- B: Result.WIN
+      ,* 1.01%, A(9) vs B(6) ==> A: Result.WIN --- B: Result.LOSS
+
+  - Stopped because settings.max_examples=100
+
+
+1 passed, 9 deselected in 0.15s
+#+end_example
+
+*** Two teams scoring equal points should share the same rank
+#+begin_src bash :exports both :results scalar
+pytest -q -k model_same_rank --hypothesis-show-statistics
+#+end_src
+
+#+RESULTS:
+#+begin_example
+.                                                                        [100%]
+============================ Hypothesis Statistics =============================
+tests/test_model.py::test_model_same_rank:
+
+  - during generate phase (0.18 seconds):
+    - Typical runtimes: ~ 1ms, ~ 66% in data generation
+    - 100 passing examples, 0 failing examples, 0 invalid examples
+    - Events:
+      ,* 7.00%, '['alpha', 'epsilon', 'iota', 'psi', 'upsilon']' have same rank(1), because they share same points (0)
+      ,* 4.00%, '['alpha', 'psi']' have same rank(3), because they share same points (115)
+      ,* 3.00%, '['alpha', 'iota']' have same rank(4), because they share same points (105)
+      ,* 3.00%, '['epsilon', 'iota', 'psi', 'upsilon']' have same rank(1), because they share same points (232)
+      ,* 2.00%, '['alpha', 'epsilon']' have same rank(4), because they share same points (51)
+      ,* 2.00%, '['alpha', 'psi']' have same rank(3), because they share same points (141)
+      ,* 2.00%, '['epsilon', 'psi']' have same rank(2), because they share same points (232)
+      ,* 2.00%, '['epsilon', 'upsilon']' have same rank(1), because they share same points (319)
+      ,* 2.00%, '['epsilon', 'upsilon']' have same rank(4), because they share same points (216)
+      ,* 1.00%, '['alpha', 'epsilon', 'upsilon']' have same rank(1), because they share same points (319)
+      ,* 1.00%, '['epsilon', 'iota', 'psi']' have same rank(2), because they share same points (176)
+      ,* 1.00%, '['epsilon', 'iota', 'psi']' have same rank(2), because they share same points (232)
+      ,* 1.00%, '['epsilon', 'psi']' have same rank(2), because they share same points (176)
+      ,* 1.00%, '['epsilon', 'upsilon']' have same rank(1), because they share same points (241)
+      ,* 1.00%, '['epsilon', 'upsilon']' have same rank(2), because they share same points (127)
+
+  - Stopped because settings.max_examples=100
+
+
+1 passed, 9 deselected in 0.22s
+#+end_example
+
+*** Two teams sharing same rank should have scored equal number of points
+#+begin_src bash :exports both :results scalar
+pytest -q -k model_same_points --hypothesis-show-statistics
+#+end_src
+
+#+RESULTS:
+#+begin_example
+.                                                                        [100%]
+============================ Hypothesis Statistics =============================
+tests/test_model.py::test_model_same_points:
+
+  - during reuse phase (0.00 seconds):
+    - Typical runtimes: ~ 1ms, ~ 58% in data generation
+    - 1 passing examples, 0 failing examples, 0 invalid examples
+
+  - during generate phase (0.18 seconds):
+    - Typical runtimes: ~ 1ms, ~ 68% in data generation
+    - 99 passing examples, 0 failing examples, 0 invalid examples
+    - Events:
+      ,* 6.06%, '['alpha', 'epsilon', 'iota', 'psi', 'upsilon']' are at (0) points, hence share the same rank (1)
+      ,* 5.05%, '['alpha', 'iota']' are at (199) points, hence share the same rank (4)
+      ,* 4.04%, '['alpha', 'iota']' are at (183) points, hence share the same rank (2)
+      ,* 4.04%, '['epsilon', 'psi']' are at (144) points, hence share the same rank (4)
+      ,* 3.03%, '['alpha', 'upsilon']' are at (211) points, hence share the same rank (3)
+      ,* 3.03%, '['epsilon', 'iota']' are at (350) points, hence share the same rank (1)
+      ,* 3.03%, '['epsilon', 'psi']' are at (16) points, hence share the same rank (4)
+      ,* 2.02%, '['alpha', 'iota']' are at (163) points, hence share the same rank (1)
+      ,* 2.02%, '['alpha', 'upsilon']' are at (211) points, hence share the same rank (4)
+      ,* 1.01%, '['alpha', 'epsilon', 'upsilon']' are at (211) points, hence share the same rank (3)
+      ,* 1.01%, '['alpha', 'epsilon']' are at (250) points, hence share the same rank (3)
+      ,* 1.01%, '['alpha', 'iota']' are at (252) points, hence share the same rank (1)
+      ,* 1.01%, '['alpha', 'iota']' are at (252) points, hence share the same rank (2)
+      ,* 1.01%, '['alpha', 'psi']' are at (211) points, hence share the same rank (2)
+      ,* 1.01%, '['alpha', 'psi']' are at (33) points, hence share the same rank (3)
+      ,* 1.01%, '['epsilon', 'iota']' are at (143) points, hence share the same rank (3)
+      ,* 1.01%, '['epsilon', 'iota']' are at (260) points, hence share the same rank (1)
+      ,* 1.01%, '['epsilon', 'iota']' are at (28) points, hence share the same rank (4)
+      ,* 1.01%, '['epsilon', 'upsilon']' are at (202) points, hence share the same rank (2)
+      ,* 1.01%, '['psi', 'upsilon']' are at (301) points, hence share the same rank (2)
+
+  - Stopped because settings.max_examples=100
+
+
+1 passed, 9 deselected in 0.21s
+#+end_example
+
+*** When teams share the same rank, they are printed in alphabetical order
+#+begin_src bash :exports both :results scalar
+pytest -q -k alphabetical_order --hypothesis-show-statistics
+#+end_src
+
+#+RESULTS:
+#+begin_example
+.                                                                        [100%]
+============================ Hypothesis Statistics =============================
+tests/test_model.py::test_alphabetical_order:
+
+  - during reuse phase (0.00 seconds):
+    - Typical runtimes: ~ 1ms, ~ 58% in data generation
+    - 1 passing examples, 0 failing examples, 0 invalid examples
+
+  - during generate phase (0.18 seconds):
+    - Typical runtimes: ~ 1ms, ~ 67% in data generation
+    - 99 passing examples, 0 failing examples, 0 invalid examples
+    - Events:
+      ,* 6.06%, More than one team have the same rank(1) due to same points (0). The printing order is, '['alpha', 'epsilon', 'iota', 'psi', 'upsilon']'
+      ,* 6.06%, More than one team have the same rank(4) due to same points (157). The printing order is, '['iota', 'upsilon']'
+      ,* 4.04%, More than one team have the same rank(3) due to same points (239). The printing order is, '['epsilon', 'upsilon']'
+      ,* 2.02%, More than one team have the same rank(2) due to same points (254). The printing order is, '['alpha', 'upsilon']'
+      ,* 2.02%, More than one team have the same rank(3) due to same points (191). The printing order is, '['alpha', 'iota', 'upsilon']'
+      ,* 2.02%, More than one team have the same rank(3) due to same points (269). The printing order is, '['alpha', 'epsilon']'
+      ,* 2.02%, More than one team have the same rank(3) due to same points (71). The printing order is, '['epsilon', 'upsilon']'
+      ,* 2.02%, More than one team have the same rank(4) due to same points (16). The printing order is, '['epsilon', 'psi']'
+      ,* 2.02%, More than one team have the same rank(4) due to same points (91). The printing order is, '['alpha', 'psi']'
+      ,* 1.01%, More than one team have the same rank(1) due to same points (222). The printing order is, '['alpha', 'epsilon']'
+      ,* 1.01%, More than one team have the same rank(1) due to same points (338). The printing order is, '['alpha', 'epsilon']'
+      ,* 1.01%, More than one team have the same rank(2) due to same points (188). The printing order is, '['alpha', 'epsilon']'
+      ,* 1.01%, More than one team have the same rank(3) due to same points (191). The printing order is, '['alpha', 'upsilon']'
+      ,* 1.01%, More than one team have the same rank(3) due to same points (219). The printing order is, '['epsilon', 'upsilon']'
+      ,* 1.01%, More than one team have the same rank(3) due to same points (52). The printing order is, '['epsilon', 'iota', 'psi']'
+      ,* 1.01%, More than one team have the same rank(4) due to same points (129). The printing order is, '['epsilon', 'psi']'
+      ,* 1.01%, More than one team have the same rank(4) due to same points (52). The printing order is, '['epsilon', 'psi']'
+      ,* 1.01%, More than one team have the same rank(4) due to same points (62). The printing order is, '['alpha', 'upsilon']'
+
+  - Stopped because settings.max_examples=100
+
+
+1 passed, 9 deselected in 0.21s
+#+end_example
+
+*** Testing with Mock Data
++
+
 
 
 * Expected

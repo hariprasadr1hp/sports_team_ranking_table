@@ -18,6 +18,7 @@ class Match:
 
     @classmethod
     def fromString(cls, string: str) -> Match:
+        """Parses Match information from the string"""
         pattern = r'\s*(.+)\s+(\d)\s*,\s*(.+)\s+(\d)\s*'
         regex: Pattern[str] = re.compile(pattern=pattern)
         matches = regex.findall(string)[0]
@@ -25,7 +26,7 @@ class Match:
         teamB = TeamOnMatchDay(name=matches[2], goals=matches[3])
         return cls(teamA, teamB)
 
-    def updateMatchResults(self):
+    def updateMatchResults(self) -> None:
         if self.teamA.goals > self.teamB.goals:
             self.teamA.result = Result.WIN
             self.teamB.result = Result.LOSS

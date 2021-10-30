@@ -5,14 +5,12 @@ from src.result import Result
 
 
 @dataclass(order=True)
+@dataclass
 class Record:
     """
     A counter for the wins, draws and losses
-    
-    sorted[wins < points]
     """
     sort_points: int = field(init=False, repr=False)
-    sort_wins: int = field(init=False, repr=False)
     wins: int = 0
     draws: int = 0
     losses: int = 0
@@ -48,8 +46,13 @@ class Record:
         else:
             raise TypeError("not a valid result type")
 
+    def __eq__(self, other) -> bool:
+        w = self.wins == other.wins
+        d = self.draws == other.draws
+        l = self.losses == other.losses
+        return w and d and l
+
     def __post_init__(self) -> None:
         self._formula = lambda wins, draws, losses: (
             3*wins) + (1*draws) + (0*losses)
         self.sort_points = self.points
-        self.sort_wins = self.wins

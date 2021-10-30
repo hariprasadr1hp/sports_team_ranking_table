@@ -2,36 +2,36 @@ import enum
 import io
 import sys
 from contextlib import redirect_stdout
-from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Any, List
+from typing import List
 
-from src.team import Team
+from src.tournament import Ranking
 
-SUCCESS = True
-FAILURE = False
 
-def to_stdout(teams: List[Team]) -> bool:
+def to_stdout(ranking_list: List[Ranking]) -> str:
+    """returns string, ready to be printed"""
     content = io.StringIO()
     sys.stdout.flush()
 
     with redirect_stdout(content):
-        for i, team in enumerate(teams, start=1):
-            sys.stdout.write("{}. {}, {} pts\n".format(
-                i, team.name, team.record.points))
+        for team in ranking_list:
+            suffix = "pt" if team.points == 1 else "pts"
+            sys.stdout.write("{}. {}, {} {}\n".format(
+                team.rank, team.name, team.points, suffix))
 
-    print(content.getvalue(), end="")
-    return SUCCESS
+    return content.getvalue()
 
-def to_csv(teams: List[Team], path: Path) -> bool:
+
+def to_csv(ranking_list: List[Ranking], path: Path) -> bool:
+    """stores the ranking details to a csv file"""
     if path.parent.exists():
         with open(path, 'w') as f:
-            for i, team in enumerate(teams, start=1):
-                f.write("{}. {}, {} pts\n".format(
-                    i, team.name, team.record.points)) 
-        return SUCCESS
-    return FAILURE
-    
+            for team in ranking_list:
+                suffix = "pt" if team.points == 1 else "pts"
+                f.write("{}. {}, {} {}\n".format(
+                    team.rank, team.name, team.points, suffix))
+        return True
+    return False
 
 
 @enum.unique
@@ -42,4 +42,3 @@ class IOHandler(enum.Enum):
     CSV = enum.auto()
     SQL = enum.auto()
     PICKLE = enum.auto()
-
