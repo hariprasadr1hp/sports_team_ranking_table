@@ -4,7 +4,7 @@ from src.result import Result
 
 def test_results_update() -> None:
     """
-    basic testing to validate if the results are 
+    basic testing to validate if the results are
     updated correctly
     """
     a = Record(0, 0, 0)

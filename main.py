@@ -7,7 +7,6 @@ from src.tournament import Tournament
 
 
 def main():
-    epl = Tournament(path)
     epl = Tournament.readInput(path)
     epl.calibrateRankings()
     content: str = to_stdout(epl.ranking_list)
@@ -16,7 +15,9 @@ def main():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="A command-line application that calculates ranking table for a sports league."
+        description="""
+            A command-line application that calculates ranking table
+            for a sports league."""
     )
 
     parser.add_argument(
@@ -33,8 +34,9 @@ if __name__ == "__main__":
     try:
         path = Path(args.input)
     except TypeError:
-        print(
-            "No input file provided! try `python main.py --input='{{input-file}}'`")
+        print("""
+            No input file provided!
+            try `python main.py --input='{{input-file}}'`""")
         sys.exit()
 
     if path.exists():

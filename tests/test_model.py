@@ -1,7 +1,6 @@
 import random
 from typing import List
 
-import pytest
 from hypothesis import event, given
 from hypothesis import strategies as st
 
@@ -69,6 +68,9 @@ def test_model_same_points(a, b, c, d, e, f):
     st.lists(st.integers(min_value=0, max_value=100), min_size=3, max_size=3),
 )
 def test_model_same_rank(a, b, c, d, e, f):
+    """
+    whether the teams with same points share the same rank
+    """
     # create 6 teams with random records
     names = [
         'alpha', 'beta', 'gamma', 'theta', 'iota',
@@ -105,9 +107,10 @@ def test_model_same_rank(a, b, c, d, e, f):
         point = i[0].points
         for j in i:
             assert j.points == point
-        event("'{}' have same rank({}), because they share same points ({})".format(
-            [k.name for k in i], i[0].rank, point
-        ))
+        event(
+            """
+            '{}' have same rank({}), because they share same points ({})
+            """.format([k.name for k in i], i[0].rank, point))
 
 
 @given(
@@ -154,6 +157,8 @@ def test_alphabetical_order(a, b, c, d, e, f):
         point = i[0].points
         for j in i:
             assert j.points == point
-        event("More than one team have the same rank({}) due to same points ({}). The printing order is, '{}'".format(
-            i[0].rank, point, [k.name for k in i]
-        ))
+        event(
+            """
+            More than one team have the same rank({}) due to same points ({}).
+            The printing order is, '{}'
+            """.format(i[0].rank, point, [k.name for k in i]))

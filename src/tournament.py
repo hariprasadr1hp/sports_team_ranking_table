@@ -1,5 +1,6 @@
 from __future__ import annotations
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Dict, List, NamedTuple
 
 from src.match import Match
@@ -21,14 +22,14 @@ class Tournament:
         init=False, repr=False, default_factory=list)
 
     @classmethod
-    def readInput(cls, file, name="Sports League") -> Tournament:
+    def readInput(cls, path: Path, name="Sports League") -> Tournament:
         """
-        reading input form a *.txt file and updating matches 
+        reading input form a *.txt file and updating matches
         and team records
         """
         matches: List[Match] = []
         teams: Dict[str, Team] = {}
-        with open(file, 'r') as rf:
+        with open(path, 'r') as rf:
             for line in rf:
                 match = Match.fromString(line)
                 matches.append(match)

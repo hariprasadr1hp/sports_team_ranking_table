@@ -52,10 +52,10 @@ def test_rules(wins: int, draws: int, losses: int) -> None:
     # points tally cannot exceed maximum collectable points
     assert obj.points <= 3*obj.matches
 
-    # event("{} wins, {} draws and {} losses results to {} points (max {} points)".format(
-    #     wins, draws, losses, obj.points, 3*obj.matches))
-    event("({}, {}, {}) (wins, draws, losses) results {} points (max {})".format(
-        wins, draws, losses, obj.points, 3*obj.matches))
+    event(
+        """
+        ({}, {}, {}) (wins, draws, losses) results {} points (max {})
+        """.format(wins, draws, losses, obj.points, 3*obj.matches))
 
 
 def test_max_cumulative_points() -> None:

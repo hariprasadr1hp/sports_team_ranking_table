@@ -3,7 +3,7 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-  <!-- 2021-10-31 Sun 01:23 -->
+  <!-- 2021-10-31 Sun 11:48 -->
   <meta http-equiv="Content-Type" content=
   "text/html; charset=utf-8" />
   <meta name="viewport" content=
@@ -224,99 +224,88 @@
       <div id="text-table-of-contents" role="doc-toc">
         <ul>
           <li>
-            <a href="#orgf2a9bb8">1. Problem Definition</a>
+            <a href="#orga637816">1. Problem Definition</a>
             <ul>
-              <li><a href="#org9b96d08">1.1. Objective</a></li>
-              <li><a href="#orgfefbc2e">1.2. Rules</a></li>
-              <li><a href="#org4a5bc4e">1.3. Sample</a></li>
+              <li><a href="#org014084d">1.1. Objective</a></li>
+              <li><a href="#orgd40dc0f">1.2. Rules</a></li>
+              <li><a href="#orgcc06017">1.3. Sample</a></li>
             </ul>
           </li>
           <li>
-            <a href="#org55b93c5">2. Manual</a>
+            <a href="#orgf763660">2. Manual</a>
             <ul>
-              <li><a href="#org5d54456">2.1. To run the
+              <li><a href="#org24bc843">2.1. To run the
               code</a></li>
-              <li><a href="#orgfa2b54b">2.2. Testing
+              <li><a href="#org9d4c740">2.2. Testing
               Module</a></li>
-              <li><a href="#org62bb00e">2.3. Complete Test
+              <li><a href="#orgeba2a15">2.3. Complete Test
               Statistics</a></li>
             </ul>
           </li>
           <li>
-            <a href="#orge1649ff">3. Code Architecture</a>
+            <a href="#org333b601">3. Code Architecture</a>
             <ul>
-              <li><a href="#orgde13c6c">3.1. <code>src/</code>
+              <li><a href="#orgb48e10b">3.1. <code>src/</code>
               directory</a></li>
-              <li><a href="#org65e493e">3.2. Class Diagram</a></li>
-              <li><a href="#org78d4f84">3.3. Sequence
+              <li><a href="#org427fac7">3.2. Class Diagram</a></li>
+              <li><a href="#org2d3668d">3.3. Sequence
               Diagram</a></li>
             </ul>
           </li>
           <li>
-            <a href="#orgb8de69d">4. Tests</a>
+            <a href="#orgce664f8">4. Tests</a>
             <ul>
-              <li><a href="#orgfb6d79c">4.1. <code>tests/</code>
+              <li><a href="#orgabea1af">4.1. Static
+              Type-Checking</a></li>
+              <li><a href="#org0c2305e">4.2. <code>flake8</code>
+              guidelines</a></li>
+              <li><a href="#orgbbb90e6">4.3. <code>tests/</code>
               directory</a></li>
               <li>
-                <a href="#orgb702c21">4.2. Test Cases</a>
+                <a href="#orgd5d8d5c">4.4. Test Cases</a>
                 <ul>
-                  <li><a href="#orgce528d4">4.2.1. whether the
+                  <li><a href="#org0390195">4.4.1. whether the
                   solution with input
                   <code>data/sample-input.txt</code> matches
                   <code>data/expected-output.txt</code></a></li>
-                  <li><a href="#org707c7bc">4.2.2. if the rules are
+                  <li><a href="#org2292ee1">4.4.2. if the rules are
                   properly applied</a></li>
-                  <li><a href="#orgca3008d">4.2.3. if the match
+                  <li><a href="#orgb74caa1">4.4.3. if the match
                   results are properly calibrated</a></li>
-                  <li><a href="#orgc8733c9">4.2.4. Two teams
+                  <li><a href="#org7b44414">4.4.4. Ranking table is
+                  idempotent</a></li>
+                  <li><a href="#org44b7366">4.4.5. Two teams
                   scoring equal points should share the same
                   rank</a></li>
-                  <li><a href="#orgbdaa979">4.2.5. Two teams
+                  <li><a href="#orgc0f2f9e">4.4.6. Two teams
                   sharing same rank should have scored equal number
                   of points</a></li>
-                  <li><a href="#org68b7d03">4.2.6. When teams share
+                  <li><a href="#orge7bcfe7">4.4.7. When teams share
                   the same rank, they are printed in alphabetical
                   order</a></li>
-                  <li><a href="#org89ede31">4.2.7. Testing with
+                  <li><a href="#orgdfd72c3">4.4.8. Testing with
                   Mock Data</a></li>
                 </ul>
               </li>
             </ul>
           </li>
-          <li>
-            <a href="#orgb534c52">5. Expected</a>
-            <ul>
-              <li><a href="#org578eb73">5.1. Thank you for your
-              interest</a></li>
-              <li><a href="#org0b6810b">5.2. What we look
-              for</a></li>
-              <li><a href="#org684d4fe">5.3. When you are
-              finished</a></li>
-              <li><a href="#org773880f">5.4. The Problem</a></li>
-              <li><a href="#org3ab7b8c">5.5. Input/output</a></li>
-              <li><a href="#org3076791">5.6. The rules</a></li>
-              <li><a href="#org77d825d">5.7. Guidelines</a></li>
-              <li><a href="#org0d8af08">5.8. Platform
-              support</a></li>
-            </ul>
-          </li>
         </ul>
       </div>
     </div>
-    <div id="outline-container-orgf2a9bb8" class="outline-2">
-      <h2 id="orgf2a9bb8"><span class="section-number-2">1.</span>
+    <div id="outline-container-orga637816" class="outline-2">
+      <h2 id="orga637816"><span class="section-number-2">1.</span>
       Problem Definition</h2>
       <div class="outline-text-2" id="text-1"></div>
-      <div id="outline-container-org9b96d08" class="outline-3">
-        <h3 id="org9b96d08"><span class=
+      <div id="outline-container-org014084d" class="outline-3">
+        <h3 id="org014084d"><span class=
         "section-number-3">1.1.</span> Objective</h3>
         <div class="outline-text-3" id="text-1-1">
           <p>A command-line application that calculates ranking
           table for a sports league.</p>
         </div>
       </div>
-      <div id="outline-container-orgfefbc2e" class="outline-3">
-        <h3 id="orgfefbc2e"><span class=
+      <div id="outline-container-orgd40dc0f" class="outline-3">
+        <h3 id="orgd40dc0f"><span class=
         "section-number-3">1.2.</span> Rules</h3>
         <div class="outline-text-3" id="text-1-2">
           <ul class="org-ul">
@@ -329,8 +318,8 @@
           </ul>
         </div>
       </div>
-      <div id="outline-container-org4a5bc4e" class="outline-3">
-        <h3 id="org4a5bc4e"><span class=
+      <div id="outline-container-orgcc06017" class="outline-3">
+        <h3 id="orgcc06017"><span class=
         "section-number-3">1.3.</span> Sample</h3>
         <div class="outline-text-3" id="text-1-3">
           <div class="org-src-container">
@@ -352,12 +341,12 @@ Crazy Ones 4, Misfits 0
         </div>
       </div>
     </div>
-    <div id="outline-container-org55b93c5" class="outline-2">
-      <h2 id="org55b93c5"><span class="section-number-2">2.</span>
+    <div id="outline-container-orgf763660" class="outline-2">
+      <h2 id="orgf763660"><span class="section-number-2">2.</span>
       Manual</h2>
       <div class="outline-text-2" id="text-2"></div>
-      <div id="outline-container-org5d54456" class="outline-3">
-        <h3 id="org5d54456"><span class=
+      <div id="outline-container-org24bc843" class="outline-3">
+        <h3 id="org24bc843"><span class=
         "section-number-3">2.1.</span> To run the code</h3>
         <div class="outline-text-3" id="text-2-1">
           <ul class="org-ul">
@@ -379,8 +368,8 @@ Crazy Ones 4, Misfits 0
 </pre>
         </div>
       </div>
-      <div id="outline-container-orgfa2b54b" class="outline-3">
-        <h3 id="orgfa2b54b"><span class=
+      <div id="outline-container-org9d4c740" class="outline-3">
+        <h3 id="org9d4c740"><span class=
         "section-number-3">2.2.</span> Testing Module</h3>
         <div class="outline-text-3" id="text-2-2">
           <div class="org-src-container">
@@ -388,13 +377,12 @@ Crazy Ones 4, Misfits 0
 </pre>
           </div>
           <pre class="example">
-..........                                                               [100%]
-10 passed in 0.91s
+...........                                                              [100%]
 </pre>
         </div>
       </div>
-      <div id="outline-container-org62bb00e" class="outline-3">
-        <h3 id="org62bb00e"><span class=
+      <div id="outline-container-orgeba2a15" class="outline-3">
+        <h3 id="orgeba2a15"><span class=
         "section-number-3">2.3.</span> Complete Test
         Statistics</h3>
         <div class="outline-text-3" id="text-2-3">
@@ -406,12 +394,12 @@ Crazy Ones 4, Misfits 0
         </div>
       </div>
     </div>
-    <div id="outline-container-orge1649ff" class="outline-2">
-      <h2 id="orge1649ff"><span class="section-number-2">3.</span>
+    <div id="outline-container-org333b601" class="outline-2">
+      <h2 id="org333b601"><span class="section-number-2">3.</span>
       Code Architecture</h2>
       <div class="outline-text-2" id="text-3"></div>
-      <div id="outline-container-orgde13c6c" class="outline-3">
-        <h3 id="orgde13c6c"><span class=
+      <div id="outline-container-orgb48e10b" class="outline-3">
+        <h3 id="orgb48e10b"><span class=
         "section-number-3">3.1.</span> <code>src/</code>
         directory</h3>
         <div class="outline-text-3" id="text-3-1">
@@ -419,7 +407,7 @@ Crazy Ones 4, Misfits 0
             <pre class="src src-bash">tree src/
 </pre>
           </div>
-          <pre class="example" id="org95a5b3e">
+          <pre class="example" id="org46efca8">
 src/
 ├── __init__.py
 ├── io_handler.py
@@ -430,10 +418,10 @@ src/
 │   ├── match.cpython-38.pyc
 │   ├── record.cpython-38.pyc
 │   ├── result.cpython-38.pyc
-│   ├── scores.cpython-38.pyc
 │   ├── team.cpython-38.pyc
 │   ├── team_on_match_day.cpython-38.pyc
 │   └── tournament.cpython-38.pyc
+├── py.typed
 ├── record.py
 ├── result.py
 ├── team_on_match_day.py
@@ -444,52 +432,75 @@ src/
 </pre>
         </div>
       </div>
-      <div id="outline-container-org65e493e" class="outline-3">
-        <h3 id="org65e493e"><span class=
+      <div id="outline-container-org427fac7" class="outline-3">
+        <h3 id="org427fac7"><span class=
         "section-number-3">3.2.</span> Class Diagram</h3>
         <div class="outline-text-3" id="text-3-2">
-          <div id="orgc2b227b" class="figure">
+          <div id="orgc490234" class="figure">
             <p><img src="data/class_diagram.svg" alt=
             "class_diagram.svg" /></p>
           </div>
         </div>
       </div>
-      <div id="outline-container-org78d4f84" class="outline-3">
-        <h3 id="org78d4f84"><span class=
+      <div id="outline-container-org2d3668d" class="outline-3">
+        <h3 id="org2d3668d"><span class=
         "section-number-3">3.3.</span> Sequence Diagram</h3>
         <div class="outline-text-3" id="text-3-3">
-          <div id="orgb3ffc80" class="figure">
+          <div id="org7cc5e2c" class="figure">
             <p><img src="data/sequence_diagram.svg" alt=
             "sequence_diagram.svg" /></p>
           </div>
         </div>
       </div>
     </div>
-    <div id="outline-container-orgb8de69d" class="outline-2">
-      <h2 id="orgb8de69d"><span class="section-number-2">4.</span>
+    <div id="outline-container-orgce664f8" class="outline-2">
+      <h2 id="orgce664f8"><span class="section-number-2">4.</span>
       Tests</h2>
       <div class="outline-text-2" id="text-4"></div>
-      <div id="outline-container-orgfb6d79c" class="outline-3">
-        <h3 id="orgfb6d79c"><span class=
-        "section-number-3">4.1.</span> <code>tests/</code>
-        directory</h3>
+      <div id="outline-container-orgabea1af" class="outline-3">
+        <h3 id="orgabea1af"><span class=
+        "section-number-3">4.1.</span> Static Type-Checking</h3>
         <div class="outline-text-3" id="text-4-1">
+          <div class="org-src-container">
+            <pre class="src src-bash">mypy main.py src
+</pre>
+          </div>
+          <pre class="example">
+Success: no issues found in 9 source files
+</pre>
+        </div>
+      </div>
+      <div id="outline-container-org0c2305e" class="outline-3">
+        <h3 id="org0c2305e"><span class=
+        "section-number-3">4.2.</span> <code>flake8</code>
+        guidelines</h3>
+        <div class="outline-text-3" id="text-4-2">
+          <div class="org-src-container">
+            <pre class="src src-bash">flake8 .
+</pre>
+          </div>
+        </div>
+      </div>
+      <div id="outline-container-orgbbb90e6" class="outline-3">
+        <h3 id="orgbbb90e6"><span class=
+        "section-number-3">4.3.</span> <code>tests/</code>
+        directory</h3>
+        <div class="outline-text-3" id="text-4-3">
           <div class="org-src-container">
             <pre class="src src-bash">tree tests/
 </pre>
           </div>
-          <pre class="example" id="orgc714966">
+          <pre class="example" id="orgdf9805f">
 tests/
+├── conftest.py
 ├── __init__.py
 ├── __pycache__
+│   ├── conftest.cpython-38-pytest-6.2.4.pyc
 │   ├── __init__.cpython-38.pyc
 │   ├── test_basic.cpython-38-pytest-6.2.4.pyc
 │   ├── test_epl.cpython-38-pytest-6.2.4.pyc
-│   ├── test_example.cpython-38-pytest-6.2.4.pyc
 │   ├── test_match.cpython-38-pytest-6.2.4.pyc
 │   ├── test_model.cpython-38-pytest-6.2.4.pyc
-│   ├── test_premilinary.cpython-38-pytest-6.2.4.pyc
-│   ├── test_ranking.cpython-38-pytest-6.2.4.pyc
 │   └── test_record.cpython-38-pytest-6.2.4.pyc
 ├── test_basic.py
 ├── test_epl.py
@@ -497,42 +508,35 @@ tests/
 ├── test_model.py
 └── test_record.py
 
-1 directory, 15 files
+1 directory, 14 files
 </pre>
         </div>
       </div>
-      <div id="outline-container-orgb702c21" class="outline-3">
-        <h3 id="orgb702c21"><span class=
-        "section-number-3">4.2.</span> Test Cases</h3>
-        <div class="outline-text-3" id="text-4-2"></div>
-        <div id="outline-container-orgce528d4" class="outline-4">
-          <h4 id="orgce528d4"><span class=
-          "section-number-4">4.2.1.</span> whether the solution
+      <div id="outline-container-orgd5d8d5c" class="outline-3">
+        <h3 id="orgd5d8d5c"><span class=
+        "section-number-3">4.4.</span> Test Cases</h3>
+        <div class="outline-text-3" id="text-4-4"></div>
+        <div id="outline-container-org0390195" class="outline-4">
+          <h4 id="org0390195"><span class=
+          "section-number-4">4.4.1.</span> whether the solution
           with input <code>data/sample-input.txt</code> matches
           <code>data/expected-output.txt</code></h4>
-          <div class="outline-text-4" id="text-4-2-1">
+          <div class="outline-text-4" id="text-4-4-1">
             <div class="org-src-container">
               <pre class="src src-bash">pytest -k sample_data
 </pre>
             </div>
             <pre class="example">
-============================= test session starts ==============================
-platform linux -- Python 3.8.8, pytest-6.2.4, py-1.10.0, pluggy-0.13.1
-rootdir: /home/hari/my/projects/tigerlab
-plugins: anyio-3.3.1, hypothesis-6.21.6, returns-0.16.0
-collected 10 items / 9 deselected / 1 selected
-
-tests/test_basic.py .                                                    [100%]
-
-======================= 1 passed, 9 deselected in 0.03s ========================
+.                                                                        [100%]
+1 passed, 10 deselected in 0.02s
 </pre>
           </div>
         </div>
-        <div id="outline-container-org707c7bc" class="outline-4">
-          <h4 id="org707c7bc"><span class=
-          "section-number-4">4.2.2.</span> if the rules are
+        <div id="outline-container-org2292ee1" class="outline-4">
+          <h4 id="org2292ee1"><span class=
+          "section-number-4">4.4.2.</span> if the rules are
           properly applied</h4>
-          <div class="outline-text-4" id="text-4-2-2">
+          <div class="outline-text-4" id="text-4-4-2">
             <ul class="org-ul">
               <li>the gathered points can never be greater than the
               maximum achievable points (3 * matches)</li>
@@ -542,464 +546,630 @@ tests/test_basic.py .                                                    [100%]
               "src src-bash">pytest -q -k rules --hypothesis-show-statistics
 </pre>
             </div>
-            <pre class="example" id="org2dee82d">
+            <pre class="example" id="org0b030e0">
 .                                                                        [100%]
 ============================ Hypothesis Statistics =============================
 tests/test_basic.py::test_rules:
 
   - during reuse phase (0.00 seconds):
-    - Typical runtimes: &lt; 1ms, ~ 30% in data generation
+    - Typical runtimes: ~ 1ms, ~ 66% in data generation
     - 1 passing examples, 0 failing examples, 0 invalid examples
 
-  - during generate phase (0.12 seconds):
-    - Typical runtimes: 0-1 ms, ~ 37% in data generation
+  - during generate phase (0.10 seconds):
+    - Typical runtimes: &lt; 1ms, ~ 38% in data generation
     - 99 passing examples, 0 failing examples, 0 invalid examples
     - Events:
-      * 3.03%, (4, 4, 4) (wins, draws, losses) results 16 points (max 36)
-      * 2.02%, (28, 94, 15) (wins, draws, losses) results 178 points (max 411)
-      * 2.02%, (56, 10, 56) (wins, draws, losses) results 178 points (max 366)
-      * 2.02%, (6, 96, 6) (wins, draws, losses) results 114 points (max 324)
-      * 1.01%, (0, 0, 0) (wins, draws, losses) results 0 points (max 0)
-      * 1.01%, (10, 0, 0) (wins, draws, losses) results 30 points (max 30)
-      * 1.01%, (10, 1, 24) (wins, draws, losses) results 31 points (max 105)
-      * 1.01%, (14, 14, 14) (wins, draws, losses) results 56 points (max 126)
-      * 1.01%, (14, 14, 49) (wins, draws, losses) results 56 points (max 231)
-      * 1.01%, (14, 49, 49) (wins, draws, losses) results 91 points (max 336)
-      * 1.01%, (14, 92, 49) (wins, draws, losses) results 134 points (max 465)
-      * 1.01%, (15, 15, 15) (wins, draws, losses) results 60 points (max 135)
-      * 1.01%, (15, 15, 54) (wins, draws, losses) results 60 points (max 252)
-      * 1.01%, (15, 64, 54) (wins, draws, losses) results 109 points (max 399)
-      * 1.01%, (2, 2, 2) (wins, draws, losses) results 8 points (max 18)
-      * 1.01%, (20, 79, 6) (wins, draws, losses) results 139 points (max 315)
-      * 1.01%, (21, 21, 21) (wins, draws, losses) results 84 points (max 189)
-      * 1.01%, (21, 21, 69) (wins, draws, losses) results 84 points (max 333)
-      * 1.01%, (24, 24, 24) (wins, draws, losses) results 96 points (max 216)
-      * 1.01%, (25, 25, 25) (wins, draws, losses) results 100 points (max 225)
-      * 1.01%, (25, 63, 25) (wins, draws, losses) results 138 points (max 339)
-      * 1.01%, (25, 63, 6) (wins, draws, losses) results 138 points (max 282)
-      * 1.01%, (25, 63, 63) (wins, draws, losses) results 138 points (max 453)
-      * 1.01%, (28, 28, 94) (wins, draws, losses) results 112 points (max 450)
-      * 1.01%, (28, 94, 94) (wins, draws, losses) results 178 points (max 648)
-      * 1.01%, (29, 10, 2) (wins, draws, losses) results 97 points (max 123)
-      * 1.01%, (29, 2, 2) (wins, draws, losses) results 89 points (max 99)
-      * 1.01%, (30, 15, 36) (wins, draws, losses) results 105 points (max 243)
-      * 1.01%, (33, 33, 33) (wins, draws, losses) results 132 points (max 297)
-      * 1.01%, (33, 89, 33) (wins, draws, losses) results 188 points (max 465)
-      * 1.01%, (35, 35, 35) (wins, draws, losses) results 140 points (max 315)
-      * 1.01%, (35, 35, 64) (wins, draws, losses) results 140 points (max 402)
-      * 1.01%, (35, 35, 68) (wins, draws, losses) results 140 points (max 414)
-      * 1.01%, (35, 5, 64) (wins, draws, losses) results 110 points (max 312)
-      * 1.01%, (35, 64, 35) (wins, draws, losses) results 169 points (max 402)
-      * 1.01%, (35, 64, 64) (wins, draws, losses) results 169 points (max 489)
-      * 1.01%, (36, 15, 36) (wins, draws, losses) results 123 points (max 261)
-      * 1.01%, (36, 36, 36) (wins, draws, losses) results 144 points (max 324)
-      * 1.01%, (4, 4, 47) (wins, draws, losses) results 16 points (max 165)
-      * 1.01%, (42, 10, 56) (wins, draws, losses) results 136 points (max 324)
-      * 1.01%, (45, 45, 45) (wins, draws, losses) results 180 points (max 405)
-      * 1.01%, (45, 65, 45) (wins, draws, losses) results 200 points (max 465)
-      * 1.01%, (45, 65, 88) (wins, draws, losses) results 200 points (max 594)
-      * 1.01%, (47, 4, 47) (wins, draws, losses) results 145 points (max 294)
-      * 1.01%, (53, 21, 69) (wins, draws, losses) results 180 points (max 429)
-      * 1.01%, (54, 15, 15) (wins, draws, losses) results 177 points (max 252)
-      * 1.01%, (54, 15, 54) (wins, draws, losses) results 177 points (max 369)
-      * 1.01%, (56, 10, 10) (wins, draws, losses) results 178 points (max 228)
-      * 1.01%, (56, 56, 56) (wins, draws, losses) results 224 points (max 504)
-      * 1.01%, (56, 89, 67) (wins, draws, losses) results 257 points (max 636)
-      * 1.01%, (58, 10, 65) (wins, draws, losses) results 184 points (max 399)
-      * 1.01%, (58, 55, 95) (wins, draws, losses) results 229 points (max 624)
-      * 1.01%, (58, 58, 58) (wins, draws, losses) results 232 points (max 522)
-      * 1.01%, (58, 58, 65) (wins, draws, losses) results 232 points (max 543)
-      * 1.01%, (58, 95, 95) (wins, draws, losses) results 269 points (max 744)
-      * 1.01%, (6, 0, 0) (wins, draws, losses) results 18 points (max 18)
-      * 1.01%, (6, 39, 94) (wins, draws, losses) results 57 points (max 417)
-      * 1.01%, (6, 79, 6) (wins, draws, losses) results 97 points (max 273)
-      * 1.01%, (63, 0, 0) (wins, draws, losses) results 189 points (max 189)
-      * 1.01%, (63, 35, 68) (wins, draws, losses) results 224 points (max 498)
-      * 1.01%, (63, 39, 97) (wins, draws, losses) results 228 points (max 597)
-      * 1.01%, (64, 0, 0) (wins, draws, losses) results 192 points (max 192)
-      * 1.01%, (64, 35, 64) (wins, draws, losses) results 227 points (max 489)
-      * 1.01%, (64, 54, 15) (wins, draws, losses) results 246 points (max 399)
-      * 1.01%, (64, 64, 64) (wins, draws, losses) results 256 points (max 576)
-      * 1.01%, (64, 96, 73) (wins, draws, losses) results 288 points (max 699)
-      * 1.01%, (65, 88, 45) (wins, draws, losses) results 283 points (max 594)
-      * 1.01%, (67, 67, 67) (wins, draws, losses) results 268 points (max 603)
-      * 1.01%, (68, 68, 68) (wins, draws, losses) results 272 points (max 612)
-      * 1.01%, (68, 90, 36) (wins, draws, losses) results 294 points (max 582)
-      * 1.01%, (68, 90, 68) (wins, draws, losses) results 294 points (max 678)
-      * 1.01%, (68, 90, 90) (wins, draws, losses) results 294 points (max 744)
-      * 1.01%, (73, 73, 73) (wins, draws, losses) results 292 points (max 657)
-      * 1.01%, (73, 89, 36) (wins, draws, losses) results 308 points (max 594)
-      * 1.01%, (73, 89, 73) (wins, draws, losses) results 308 points (max 705)
-      * 1.01%, (73, 96, 73) (wins, draws, losses) results 315 points (max 726)
-      * 1.01%, (73, 96, 96) (wins, draws, losses) results 315 points (max 795)
-      * 1.01%, (74, 12, 59) (wins, draws, losses) results 234 points (max 435)
-      * 1.01%, (74, 59, 59) (wins, draws, losses) results 281 points (max 576)
-      * 1.01%, (74, 74, 59) (wins, draws, losses) results 296 points (max 621)
-      * 1.01%, (74, 74, 74) (wins, draws, losses) results 296 points (max 666)
-      * 1.01%, (79, 79, 6) (wins, draws, losses) results 316 points (max 492)
-      * 1.01%, (83, 0, 0) (wins, draws, losses) results 249 points (max 249)
-      * 1.01%, (83, 10, 31) (wins, draws, losses) results 259 points (max 372)
-      * 1.01%, (83, 24, 24) (wins, draws, losses) results 273 points (max 393)
-      * 1.01%, (83, 24, 32) (wins, draws, losses) results 273 points (max 417)
-      * 1.01%, (83, 83, 24) (wins, draws, losses) results 332 points (max 570)
-      * 1.01%, (89, 33, 33) (wins, draws, losses) results 300 points (max 465)
-      * 1.01%, (89, 67, 67) (wins, draws, losses) results 334 points (max 669)
-      * 1.01%, (89, 89, 33) (wins, draws, losses) results 356 points (max 633)
-      * 1.01%, (89, 89, 67) (wins, draws, losses) results 356 points (max 735)
-      * 1.01%, (95, 95, 95) (wins, draws, losses) results 380 points (max 855)
-      * 1.01%, (96, 6, 61) (wins, draws, losses) results 294 points (max 489)
-      * 1.01%, (96, 96, 96) (wins, draws, losses) results 384 points (max 864)
+      * 4.04%, 
+        (0, 0, 0) (wins, draws, losses) results 0 points (max 0)
+        
+      * 2.02%, 
+        (29, 38, 64) (wins, draws, losses) results 125 points (max 393)
+        
+      * 1.01%, 
+        (0, 47, 0) (wins, draws, losses) results 47 points (max 141)
+        
+      * 1.01%, 
+        (100, 100, 100) (wins, draws, losses) results 400 points (max 900)
+        
+      * 1.01%, 
+        (100, 80, 100) (wins, draws, losses) results 380 points (max 840)
+        
+      * 1.01%, 
+        (100, 80, 25) (wins, draws, losses) results 380 points (max 615)
+        
+      * 1.01%, 
+        (100, 80, 80) (wins, draws, losses) results 380 points (max 780)
+        
+      * 1.01%, 
+        (2, 2, 2) (wins, draws, losses) results 8 points (max 18)
+        
+      * 1.01%, 
+        (2, 94, 2) (wins, draws, losses) results 100 points (max 294)
+        
+      * 1.01%, 
+        (2, 94, 94) (wins, draws, losses) results 100 points (max 570)
+        
+      * 1.01%, 
+        (20, 0, 0) (wins, draws, losses) results 60 points (max 60)
+        
+      * 1.01%, 
+        (20, 0, 45) (wins, draws, losses) results 60 points (max 195)
+        
+      * 1.01%, 
+        (20, 20, 45) (wins, draws, losses) results 80 points (max 255)
+        
+      * 1.01%, 
+        (20, 45, 20) (wins, draws, losses) results 105 points (max 255)
+        
+      * 1.01%, 
+        (20, 45, 45) (wins, draws, losses) results 105 points (max 330)
+        
+      * 1.01%, 
+        (20, 92, 96) (wins, draws, losses) results 152 points (max 624)
+        
+      * 1.01%, 
+        (25, 25, 25) (wins, draws, losses) results 100 points (max 225)
+        
+      * 1.01%, 
+        (25, 25, 88) (wins, draws, losses) results 100 points (max 414)
+        
+      * 1.01%, 
+        (25, 29, 29) (wins, draws, losses) results 104 points (max 249)
+        
+      * 1.01%, 
+        (25, 36, 29) (wins, draws, losses) results 111 points (max 270)
+        
+      * 1.01%, 
+        (25, 40, 88) (wins, draws, losses) results 115 points (max 459)
+        
+      * 1.01%, 
+        (25, 88, 40) (wins, draws, losses) results 163 points (max 459)
+        
+      * 1.01%, 
+        (25, 88, 88) (wins, draws, losses) results 163 points (max 603)
+        
+      * 1.01%, 
+        (29, 29, 29) (wins, draws, losses) results 116 points (max 261)
+        
+      * 1.01%, 
+        (3, 53, 3) (wins, draws, losses) results 62 points (max 177)
+        
+      * 1.01%, 
+        (30, 30, 30) (wins, draws, losses) results 120 points (max 270)
+        
+      * 1.01%, 
+        (30, 30, 35) (wins, draws, losses) results 120 points (max 285)
+        
+      * 1.01%, 
+        (33, 95, 33) (wins, draws, losses) results 194 points (max 483)
+        
+      * 1.01%, 
+        (33, 95, 56) (wins, draws, losses) results 194 points (max 552)
+        
+      * 1.01%, 
+        (33, 95, 95) (wins, draws, losses) results 194 points (max 669)
+        
+      * 1.01%, 
+        (34, 34, 34) (wins, draws, losses) results 136 points (max 306)
+        
+      * 1.01%, 
+        (34, 76, 34) (wins, draws, losses) results 178 points (max 432)
+        
+      * 1.01%, 
+        (38, 38, 38) (wins, draws, losses) results 152 points (max 342)
+        
+      * 1.01%, 
+        (38, 38, 64) (wins, draws, losses) results 152 points (max 420)
+        
+      * 1.01%, 
+        (38, 77, 94) (wins, draws, losses) results 191 points (max 627)
+        
+      * 1.01%, 
+        (40, 30, 30) (wins, draws, losses) results 150 points (max 300)
+        
+      * 1.01%, 
+        (40, 30, 40) (wins, draws, losses) results 150 points (max 330)
+        
+      * 1.01%, 
+        (40, 30, 89) (wins, draws, losses) results 150 points (max 477)
+        
+      * 1.01%, 
+        (44, 66, 77) (wins, draws, losses) results 198 points (max 561)
+        
+      * 1.01%, 
+        (45, 45, 20) (wins, draws, losses) results 180 points (max 330)
+        
+      * 1.01%, 
+        (45, 45, 45) (wins, draws, losses) results 180 points (max 405)
+        
+      * 1.01%, 
+        (45, 53, 3) (wins, draws, losses) results 188 points (max 303)
+        
+      * 1.01%, 
+        (46, 37, 92) (wins, draws, losses) results 175 points (max 525)
+        
+      * 1.01%, 
+        (46, 46, 37) (wins, draws, losses) results 184 points (max 387)
+        
+      * 1.01%, 
+        (46, 6, 37) (wins, draws, losses) results 144 points (max 267)
+        
+      * 1.01%, 
+        (47, 47, 0) (wins, draws, losses) results 188 points (max 282)
+        
+      * 1.01%, 
+        (47, 47, 47) (wins, draws, losses) results 188 points (max 423)
+        
+      * 1.01%, 
+        (50, 90, 56) (wins, draws, losses) results 240 points (max 588)
+        
+      * 1.01%, 
+        (51, 83, 47) (wins, draws, losses) results 236 points (max 543)
+        
+      * 1.01%, 
+        (53, 53, 3) (wins, draws, losses) results 212 points (max 327)
+        
+      * 1.01%, 
+        (56, 56, 56) (wins, draws, losses) results 224 points (max 504)
+        
+      * 1.01%, 
+        (56, 56, 57) (wins, draws, losses) results 224 points (max 507)
+        
+      * 1.01%, 
+        (56, 57, 57) (wins, draws, losses) results 225 points (max 510)
+        
+      * 1.01%, 
+        (56, 57, 60) (wins, draws, losses) results 225 points (max 519)
+        
+      * 1.01%, 
+        (56, 90, 56) (wins, draws, losses) results 258 points (max 606)
+        
+      * 1.01%, 
+        (58, 42, 66) (wins, draws, losses) results 216 points (max 498)
+        
+      * 1.01%, 
+        (58, 5, 75) (wins, draws, losses) results 179 points (max 414)
+        
+      * 1.01%, 
+        (58, 58, 58) (wins, draws, losses) results 232 points (max 522)
+        
+      * 1.01%, 
+        (58, 58, 66) (wins, draws, losses) results 232 points (max 546)
+        
+      * 1.01%, 
+        (63, 76, 34) (wins, draws, losses) results 265 points (max 519)
+        
+      * 1.01%, 
+        (64, 38, 38) (wins, draws, losses) results 230 points (max 420)
+        
+      * 1.01%, 
+        (64, 38, 64) (wins, draws, losses) results 230 points (max 498)
+        
+      * 1.01%, 
+        (65, 22, 8) (wins, draws, losses) results 217 points (max 285)
+        
+      * 1.01%, 
+        (65, 8, 8) (wins, draws, losses) results 203 points (max 243)
+        
+      * 1.01%, 
+        (66, 66, 66) (wins, draws, losses) results 264 points (max 594)
+        
+      * 1.01%, 
+        (66, 66, 77) (wins, draws, losses) results 264 points (max 627)
+        
+      * 1.01%, 
+        (66, 77, 77) (wins, draws, losses) results 275 points (max 660)
+        
+      * 1.01%, 
+        (67, 43, 43) (wins, draws, losses) results 244 points (max 459)
+        
+      * 1.01%, 
+        (67, 67, 43) (wins, draws, losses) results 268 points (max 531)
+        
+      * 1.01%, 
+        (67, 67, 67) (wins, draws, losses) results 268 points (max 603)
+        
+      * 1.01%, 
+        (67, 67, 97) (wins, draws, losses) results 268 points (max 693)
+        
+      * 1.01%, 
+        (73, 0, 0) (wins, draws, losses) results 219 points (max 219)
+        
+      * 1.01%, 
+        (73, 95, 20) (wins, draws, losses) results 314 points (max 564)
+        
+      * 1.01%, 
+        (75, 5, 5) (wins, draws, losses) results 230 points (max 255)
+        
+      * 1.01%, 
+        (75, 5, 75) (wins, draws, losses) results 230 points (max 465)
+        
+      * 1.01%, 
+        (75, 75, 75) (wins, draws, losses) results 300 points (max 675)
+        
+      * 1.01%, 
+        (77, 67, 43) (wins, draws, losses) results 298 points (max 561)
+        
+      * 1.01%, 
+        (77, 77, 77) (wins, draws, losses) results 308 points (max 693)
+        
+      * 1.01%, 
+        (77, 77, 94) (wins, draws, losses) results 308 points (max 744)
+        
+      * 1.01%, 
+        (8, 8, 8) (wins, draws, losses) results 32 points (max 72)
+        
+      * 1.01%, 
+        (83, 47, 47) (wins, draws, losses) results 296 points (max 531)
+        
+      * 1.01%, 
+        (83, 83, 47) (wins, draws, losses) results 332 points (max 639)
+        
+      * 1.01%, 
+        (87, 36, 59) (wins, draws, losses) results 297 points (max 546)
+        
+      * 1.01%, 
+        (87, 87, 36) (wins, draws, losses) results 348 points (max 630)
+        
+      * 1.01%, 
+        (87, 87, 87) (wins, draws, losses) results 348 points (max 783)
+        
+      * 1.01%, 
+        (9, 0, 0) (wins, draws, losses) results 27 points (max 27)
+        
+      * 1.01%, 
+        (9, 25, 22) (wins, draws, losses) results 52 points (max 168)
+        
+      * 1.01%, 
+        (9, 47, 0) (wins, draws, losses) results 74 points (max 168)
+        
+      * 1.01%, 
+        (92, 67, 97) (wins, draws, losses) results 343 points (max 768)
+        
+      * 1.01%, 
+        (92, 96, 18) (wins, draws, losses) results 372 points (max 618)
+        
+      * 1.01%, 
+        (94, 77, 94) (wins, draws, losses) results 359 points (max 795)
+        
+      * 1.01%, 
+        (95, 95, 95) (wins, draws, losses) results 380 points (max 855)
+        
+      * 1.01%, 
+        (96, 30, 35) (wins, draws, losses) results 318 points (max 483)
+        
+      * 1.01%, 
+        (96, 96, 18) (wins, draws, losses) results 384 points (max 630)
+        
+      * 1.01%, 
+        (96, 96, 96) (wins, draws, losses) results 384 points (max 864)
+        
 
   - Stopped because settings.max_examples=100
 
 
-1 passed, 9 deselected in 0.16s
 </pre>
           </div>
         </div>
-        <div id="outline-container-orgca3008d" class="outline-4">
-          <h4 id="orgca3008d"><span class=
-          "section-number-4">4.2.3.</span> if the match results are
+        <div id="outline-container-orgb74caa1" class="outline-4">
+          <h4 id="orgb74caa1"><span class=
+          "section-number-4">4.4.3.</span> if the match results are
           properly calibrated</h4>
-          <div class="outline-text-4" id="text-4-2-3">
+          <div class="outline-text-4" id="text-4-4-3">
             <div class="org-src-container">
               <pre class=
               "src src-bash">pytest -q -k match_results --hypothesis-show-statistics
 </pre>
             </div>
-            <pre class="example" id="orgb562d12">
+            <pre class="example" id="org70b1c41">
 .                                                                        [100%]
 ============================ Hypothesis Statistics =============================
 tests/test_match.py::test_match_results:
 
   - during reuse phase (0.00 seconds):
-    - Typical runtimes: &lt; 1ms, ~ 43% in data generation
+    - Typical runtimes: ~ 1ms, ~ 22% in data generation
     - 1 passing examples, 0 failing examples, 0 invalid examples
 
-  - during generate phase (0.13 seconds):
+  - during generate phase (0.12 seconds):
     - Typical runtimes: &lt; 1ms, ~ 52% in data generation
     - 99 passing examples, 0 failing examples, 0 invalid examples
     - Events:
-      * 9.09%, A(9) vs B(9) ==&gt; A: Result.DRAW --- B: Result.DRAW
-      * 7.07%, A(7) vs B(7) ==&gt; A: Result.DRAW --- B: Result.DRAW
-      * 5.05%, A(10) vs B(3) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 5.05%, A(18) vs B(18) ==&gt; A: Result.DRAW --- B: Result.DRAW
-      * 5.05%, A(20) vs B(1) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 4.04%, A(9) vs B(19) ==&gt; A: Result.LOSS --- B: Result.WIN
-      * 3.03%, A(12) vs B(13) ==&gt; A: Result.LOSS --- B: Result.WIN
-      * 3.03%, A(14) vs B(10) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 3.03%, A(7) vs B(20) ==&gt; A: Result.LOSS --- B: Result.WIN
-      * 3.03%, A(8) vs B(9) ==&gt; A: Result.LOSS --- B: Result.WIN
-      * 2.02%, A(10) vs B(15) ==&gt; A: Result.LOSS --- B: Result.WIN
-      * 2.02%, A(11) vs B(10) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 2.02%, A(11) vs B(11) ==&gt; A: Result.DRAW --- B: Result.DRAW
-      * 2.02%, A(12) vs B(0) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 2.02%, A(14) vs B(3) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 2.02%, A(18) vs B(12) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 2.02%, A(18) vs B(3) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 2.02%, A(19) vs B(2) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 2.02%, A(20) vs B(15) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 2.02%, A(6) vs B(18) ==&gt; A: Result.LOSS --- B: Result.WIN
-      * 2.02%, A(6) vs B(6) ==&gt; A: Result.DRAW --- B: Result.DRAW
-      * 2.02%, A(7) vs B(14) ==&gt; A: Result.LOSS --- B: Result.WIN
-      * 2.02%, A(7) vs B(2) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 1.01%, A(0) vs B(0) ==&gt; A: Result.DRAW --- B: Result.DRAW
-      * 1.01%, A(1) vs B(10) ==&gt; A: Result.LOSS --- B: Result.WIN
-      * 1.01%, A(10) vs B(4) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 1.01%, A(11) vs B(15) ==&gt; A: Result.LOSS --- B: Result.WIN
-      * 1.01%, A(11) vs B(6) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 1.01%, A(12) vs B(10) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 1.01%, A(12) vs B(12) ==&gt; A: Result.DRAW --- B: Result.DRAW
-      * 1.01%, A(12) vs B(20) ==&gt; A: Result.LOSS --- B: Result.WIN
-      * 1.01%, A(12) vs B(9) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 1.01%, A(15) vs B(7) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 1.01%, A(17) vs B(19) ==&gt; A: Result.LOSS --- B: Result.WIN
-      * 1.01%, A(18) vs B(0) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 1.01%, A(18) vs B(17) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 1.01%, A(18) vs B(20) ==&gt; A: Result.LOSS --- B: Result.WIN
-      * 1.01%, A(18) vs B(9) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 1.01%, A(19) vs B(19) ==&gt; A: Result.DRAW --- B: Result.DRAW
-      * 1.01%, A(19) vs B(20) ==&gt; A: Result.LOSS --- B: Result.WIN
-      * 1.01%, A(19) vs B(4) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 1.01%, A(20) vs B(11) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 1.01%, A(3) vs B(2) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 1.01%, A(3) vs B(5) ==&gt; A: Result.LOSS --- B: Result.WIN
-      * 1.01%, A(4) vs B(18) ==&gt; A: Result.LOSS --- B: Result.WIN
-      * 1.01%, A(5) vs B(13) ==&gt; A: Result.LOSS --- B: Result.WIN
-      * 1.01%, A(7) vs B(0) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 1.01%, A(9) vs B(0) ==&gt; A: Result.WIN --- B: Result.LOSS
-      * 1.01%, A(9) vs B(10) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 12.12%, A(13) vs B(13) ==&gt; A: Result.DRAW --- B: Result.DRAW
+      * 7.07%, A(12) vs B(0) ==&gt; A: Result.WIN --- B: Result.LOSS
+      * 5.05%, A(16) vs B(0) ==&gt; A: Result.WIN --- B: Result.LOSS
+      * 4.04%, A(12) vs B(13) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 3.03%, A(0) vs B(0) ==&gt; A: Result.DRAW --- B: Result.DRAW
+      * 3.03%, A(0) vs B(5) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 3.03%, A(1) vs B(14) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 3.03%, A(1) vs B(15) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 3.03%, A(14) vs B(14) ==&gt; A: Result.DRAW --- B: Result.DRAW
+      * 3.03%, A(6) vs B(13) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 3.03%, A(8) vs B(8) ==&gt; A: Result.DRAW --- B: Result.DRAW
+      * 3.03%, A(9) vs B(0) ==&gt; A: Result.WIN --- B: Result.LOSS
+      * 2.02%, A(1) vs B(10) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 2.02%, A(1) vs B(6) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 2.02%, A(10) vs B(5) ==&gt; A: Result.WIN --- B: Result.LOSS
+      * 2.02%, A(16) vs B(17) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 2.02%, A(16) vs B(5) ==&gt; A: Result.WIN --- B: Result.LOSS
+      * 2.02%, A(19) vs B(19) ==&gt; A: Result.DRAW --- B: Result.DRAW
+      * 2.02%, A(19) vs B(6) ==&gt; A: Result.WIN --- B: Result.LOSS
+      * 2.02%, A(20) vs B(12) ==&gt; A: Result.WIN --- B: Result.LOSS
+      * 2.02%, A(3) vs B(9) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 2.02%, A(4) vs B(8) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 2.02%, A(8) vs B(3) ==&gt; A: Result.WIN --- B: Result.LOSS
+      * 1.01%, A(0) vs B(10) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 1.01%, A(0) vs B(13) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 1.01%, A(1) vs B(0) ==&gt; A: Result.WIN --- B: Result.LOSS
+      * 1.01%, A(1) vs B(1) ==&gt; A: Result.DRAW --- B: Result.DRAW
+      * 1.01%, A(10) vs B(19) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 1.01%, A(11) vs B(19) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 1.01%, A(13) vs B(12) ==&gt; A: Result.WIN --- B: Result.LOSS
+      * 1.01%, A(13) vs B(16) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 1.01%, A(13) vs B(9) ==&gt; A: Result.WIN --- B: Result.LOSS
+      * 1.01%, A(14) vs B(1) ==&gt; A: Result.WIN --- B: Result.LOSS
+      * 1.01%, A(15) vs B(19) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 1.01%, A(17) vs B(16) ==&gt; A: Result.WIN --- B: Result.LOSS
+      * 1.01%, A(19) vs B(0) ==&gt; A: Result.WIN --- B: Result.LOSS
+      * 1.01%, A(2) vs B(2) ==&gt; A: Result.DRAW --- B: Result.DRAW
+      * 1.01%, A(3) vs B(13) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 1.01%, A(4) vs B(12) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 1.01%, A(4) vs B(19) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 1.01%, A(6) vs B(0) ==&gt; A: Result.WIN --- B: Result.LOSS
+      * 1.01%, A(6) vs B(16) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 1.01%, A(6) vs B(5) ==&gt; A: Result.WIN --- B: Result.LOSS
+      * 1.01%, A(7) vs B(19) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 1.01%, A(8) vs B(20) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 1.01%, A(8) vs B(5) ==&gt; A: Result.WIN --- B: Result.LOSS
+      * 1.01%, A(9) vs B(13) ==&gt; A: Result.LOSS --- B: Result.WIN
+      * 1.01%, A(9) vs B(15) ==&gt; A: Result.LOSS --- B: Result.WIN
 
   - Stopped because settings.max_examples=100
 
 
-1 passed, 9 deselected in 0.18s
 </pre>
           </div>
         </div>
-        <div id="outline-container-orgc8733c9" class="outline-4">
-          <h4 id="orgc8733c9"><span class=
-          "section-number-4">4.2.4.</span> Two teams scoring equal
+        <div id="outline-container-org7b44414" class="outline-4">
+          <h4 id="org7b44414"><span class=
+          "section-number-4">4.4.4.</span> Ranking table is
+          idempotent</h4>
+          <div class="outline-text-4" id="text-4-4-4">
+            <div class="org-src-container">
+              <pre class=
+              "src src-bash">pytest -q -k epl_ranking_idempotency --hypothesis-show-statistics
+</pre>
+            </div>
+            <pre class="example">
+.                                                                        [100%]
+============================ Hypothesis Statistics =============================
+</pre>
+          </div>
+        </div>
+        <div id="outline-container-org44b7366" class="outline-4">
+          <h4 id="org44b7366"><span class=
+          "section-number-4">4.4.5.</span> Two teams scoring equal
           points should share the same rank</h4>
-          <div class="outline-text-4" id="text-4-2-4">
+          <div class="outline-text-4" id="text-4-4-5">
             <div class="org-src-container">
               <pre class=
               "src src-bash">pytest -q -k model_same_rank --hypothesis-show-statistics
 </pre>
             </div>
-            <pre class="example" id="org6e82bd4">
+            <pre class="example" id="orgfd37f7a">
 .                                                                        [100%]
 ============================ Hypothesis Statistics =============================
 tests/test_model.py::test_model_same_rank:
 
   - during reuse phase (0.00 seconds):
-    - Typical runtimes: ~ 1ms, ~ 61% in data generation
+    - Typical runtimes: ~ 2ms, ~ 44% in data generation
     - 1 passing examples, 0 failing examples, 0 invalid examples
 
-  - during generate phase (0.23 seconds):
-    - Typical runtimes: 1-2 ms, ~ 65% in data generation
+  - during generate phase (0.21 seconds):
+    - Typical runtimes: ~ 1ms, ~ 66% in data generation
     - 99 passing examples, 0 failing examples, 0 invalid examples
     - Events:
-      * 5.05%, '['alpha', 'epsilon', 'iota', 'psi', 'upsilon']' have same rank(1), because they share same points (0)
-      * 4.04%, '['alpha', 'epsilon']' have same rank(3), because they share same points (267)
-      * 4.04%, '['alpha', 'iota']' have same rank(1), because they share same points (341)
-      * 3.03%, '['alpha', 'epsilon']' have same rank(2), because they share same points (325)
-      * 3.03%, '['alpha', 'upsilon']' have same rank(3), because they share same points (79)
-      * 2.02%, '['alpha', 'iota']' have same rank(2), because they share same points (197)
-      * 2.02%, '['epsilon', 'psi']' have same rank(4), because they share same points (87)
-      * 2.02%, '['epsilon', 'upsilon']' have same rank(4), because they share same points (89)
-      * 1.01%, '['alpha', 'epsilon']' have same rank(4), because they share same points (196)
-      * 1.01%, '['alpha', 'epsilon']' have same rank(4), because they share same points (267)
-      * 1.01%, '['alpha', 'psi']' have same rank(1), because they share same points (267)
-      * 1.01%, '['alpha', 'psi']' have same rank(2), because they share same points (267)
-      * 1.01%, '['epsilon', 'iota']' have same rank(1), because they share same points (269)
-      * 1.01%, '['epsilon', 'iota']' have same rank(2), because they share same points (131)
-      * 1.01%, '['epsilon', 'iota']' have same rank(2), because they share same points (222)
-      * 1.01%, '['epsilon', 'upsilon']' have same rank(1), because they share same points (309)
-      * 1.01%, '['epsilon', 'upsilon']' have same rank(3), because they share same points (248)
-      * 1.01%, '['iota', 'upsilon']' have same rank(2), because they share same points (300)
-      * 1.01%, '['psi', 'upsilon']' have same rank(4), because they share same points (57)
+      * 6.06%, 
+            '['alpha', 'epsilon', 'iota', 'psi', 'upsilon']' have same rank(1), because they share same points (0)
+            
+      * 4.04%, 
+            '['iota', 'upsilon']' have same rank(4), because they share same points (108)
+            
+      * 3.03%, 
+            '['alpha', 'epsilon', 'psi']' have same rank(2), because they share same points (333)
+            
+      * 2.02%, 
+            '['alpha', 'psi']' have same rank(2), because they share same points (333)
+            
+      * 1.01%, 
+            '['alpha', 'epsilon', 'upsilon']' have same rank(1), because they share same points (284)
+            
+      * 1.01%, 
+            '['alpha', 'epsilon']' have same rank(2), because they share same points (104)
+            
+      * 1.01%, 
+            '['alpha', 'epsilon']' have same rank(2), because they share same points (284)
+            
+      * 1.01%, 
+            '['alpha', 'iota']' have same rank(2), because they share same points (249)
+            
+      * 1.01%, 
+            '['alpha', 'iota']' have same rank(4), because they share same points (44)
+            
+      * 1.01%, 
+            '['alpha', 'psi']' have same rank(3), because they share same points (131)
+            
+      * 1.01%, 
+            '['alpha', 'psi']' have same rank(3), because they share same points (205)
+            
+      * 1.01%, 
+            '['epsilon', 'iota']' have same rank(4), because they share same points (112)
+            
+      * 1.01%, 
+            '['epsilon', 'upsilon']' have same rank(1), because they share same points (284)
+            
+      * 1.01%, 
+            '['iota', 'psi']' have same rank(3), because they share same points (129)
+            
+      * 1.01%, 
+            '['iota', 'psi']' have same rank(4), because they share same points (94)
+            
 
   - Stopped because settings.max_examples=100
 
 
-1 passed, 9 deselected in 0.28s
 </pre>
           </div>
         </div>
-        <div id="outline-container-orgbdaa979" class="outline-4">
-          <h4 id="orgbdaa979"><span class=
-          "section-number-4">4.2.5.</span> Two teams sharing same
+        <div id="outline-container-orgc0f2f9e" class="outline-4">
+          <h4 id="orgc0f2f9e"><span class=
+          "section-number-4">4.4.6.</span> Two teams sharing same
           rank should have scored equal number of points</h4>
-          <div class="outline-text-4" id="text-4-2-5">
+          <div class="outline-text-4" id="text-4-4-6">
             <div class="org-src-container">
               <pre class=
               "src src-bash">pytest -q -k model_same_points --hypothesis-show-statistics
 </pre>
             </div>
-            <pre class="example" id="org909f37d">
+            <pre class="example" id="org8dba107">
 .                                                                        [100%]
 ============================ Hypothesis Statistics =============================
 tests/test_model.py::test_model_same_points:
 
   - during reuse phase (0.00 seconds):
-    - Typical runtimes: ~ 1ms, ~ 56% in data generation
+    - Typical runtimes: ~ 2ms, ~ 75% in data generation
     - 1 passing examples, 0 failing examples, 0 invalid examples
 
-  - during generate phase (0.20 seconds):
-    - Typical runtimes: 1-2 ms, ~ 66% in data generation
+  - during generate phase (0.36 seconds):
+    - Typical runtimes: 1-3 ms, ~ 66% in data generation
     - 99 passing examples, 0 failing examples, 0 invalid examples
     - Events:
-      * 7.07%, '['alpha', 'epsilon', 'iota', 'psi', 'upsilon']' are at (0) points, hence share the same rank (1)
-      * 4.04%, '['epsilon', 'iota']' are at (219) points, hence share the same rank (2)
-      * 3.03%, '['epsilon', 'psi']' are at (133) points, hence share the same rank (3)
-      * 2.02%, '['epsilon', 'upsilon']' are at (126) points, hence share the same rank (3)
-      * 2.02%, '['iota', 'upsilon']' are at (96) points, hence share the same rank (3)
-      * 1.01%, '['epsilon', 'iota', 'upsilon']' are at (148) points, hence share the same rank (2)
-      * 1.01%, '['epsilon', 'iota']' are at (223) points, hence share the same rank (2)
-      * 1.01%, '['epsilon', 'iota']' are at (65) points, hence share the same rank (4)
-      * 1.01%, '['epsilon', 'psi', 'upsilon']' are at (133) points, hence share the same rank (2)
-      * 1.01%, '['epsilon', 'psi']' are at (277) points, hence share the same rank (2)
-      * 1.01%, '['epsilon', 'psi']' are at (327) points, hence share the same rank (2)
-      * 1.01%, '['epsilon', 'upsilon']' are at (133) points, hence share the same rank (4)
-      * 1.01%, '['iota', 'psi']' are at (120) points, hence share the same rank (4)
-      * 1.01%, '['iota', 'psi']' are at (300) points, hence share the same rank (1)
-      * 1.01%, '['iota', 'upsilon']' are at (148) points, hence share the same rank (3)
+      * 6.06%, '['alpha', 'epsilon', 'iota', 'psi', 'upsilon']' are at (0) points, hence share the same rank (1)
+      * 4.04%, '['alpha', 'psi']' are at (62) points, hence share the same rank (4)
+      * 4.04%, '['epsilon', 'iota']' are at (112) points, hence share the same rank (4)
+      * 4.04%, '['epsilon', 'upsilon']' are at (305) points, hence share the same rank (1)
+      * 2.02%, '['alpha', 'upsilon']' are at (269) points, hence share the same rank (3)
+      * 2.02%, '['epsilon', 'iota']' are at (265) points, hence share the same rank (3)
+      * 2.02%, '['epsilon', 'psi']' are at (274) points, hence share the same rank (3)
+      * 2.02%, '['epsilon', 'upsilon']' are at (236) points, hence share the same rank (2)
+      * 1.01%, '['alpha', 'iota', 'upsilon']' are at (269) points, hence share the same rank (2)
+      * 1.01%, '['alpha', 'iota']' are at (252) points, hence share the same rank (3)
+      * 1.01%, '['epsilon', 'iota']' are at (299) points, hence share the same rank (1)
+      * 1.01%, '['epsilon', 'iota']' are at (322) points, hence share the same rank (2)
+      * 1.01%, '['epsilon', 'iota']' are at (331) points, hence share the same rank (2)
+      * 1.01%, '['epsilon', 'iota']' are at (80) points, hence share the same rank (4)
+      * 1.01%, '['epsilon', 'psi']' are at (245) points, hence share the same rank (1)
+      * 1.01%, '['epsilon', 'psi']' are at (294) points, hence share the same rank (1)
+      * 1.01%, '['epsilon', 'upsilon']' are at (181) points, hence share the same rank (1)
+      * 1.01%, '['iota', 'psi']' are at (253) points, hence share the same rank (2)
 
   - Stopped because settings.max_examples=100
 
 
-1 passed, 9 deselected in 0.25s
 </pre>
           </div>
         </div>
-        <div id="outline-container-org68b7d03" class="outline-4">
-          <h4 id="org68b7d03"><span class=
-          "section-number-4">4.2.6.</span> When teams share the
+        <div id="outline-container-orge7bcfe7" class="outline-4">
+          <h4 id="orge7bcfe7"><span class=
+          "section-number-4">4.4.7.</span> When teams share the
           same rank, they are printed in alphabetical order</h4>
-          <div class="outline-text-4" id="text-4-2-6">
+          <div class="outline-text-4" id="text-4-4-7">
             <div class="org-src-container">
               <pre class=
               "src src-bash">pytest -q -k alphabetical_order --hypothesis-show-statistics
 </pre>
             </div>
-            <pre class="example" id="org91d790c">
+            <pre class="example" id="org45f0f6a">
 .                                                                        [100%]
 ============================ Hypothesis Statistics =============================
 tests/test_model.py::test_alphabetical_order:
 
   - during reuse phase (0.00 seconds):
-    - Typical runtimes: ~ 1ms, ~ 59% in data generation
+    - Typical runtimes: ~ 2ms, ~ 35% in data generation
     - 1 passing examples, 0 failing examples, 0 invalid examples
 
-  - during generate phase (0.19 seconds):
-    - Typical runtimes: ~ 1ms, ~ 67% in data generation
+  - during generate phase (0.28 seconds):
+    - Typical runtimes: 1-3 ms, ~ 68% in data generation
     - 99 passing examples, 0 failing examples, 0 invalid examples
     - Events:
-      * 5.05%, More than one team have the same rank(1) due to same points (0). The printing order is, '['alpha', 'epsilon', 'iota', 'psi', 'upsilon']'
-      * 4.04%, More than one team have the same rank(2) due to same points (211). The printing order is, '['iota', 'psi', 'upsilon']'
-      * 4.04%, More than one team have the same rank(3) due to same points (230). The printing order is, '['iota', 'upsilon']'
-      * 3.03%, More than one team have the same rank(3) due to same points (194). The printing order is, '['alpha', 'epsilon']'
-      * 2.02%, More than one team have the same rank(1) due to same points (248). The printing order is, '['iota', 'psi']'
-      * 2.02%, More than one team have the same rank(1) due to same points (260). The printing order is, '['epsilon', 'iota']'
-      * 2.02%, More than one team have the same rank(1) due to same points (340). The printing order is, '['epsilon', 'iota']'
-      * 2.02%, More than one team have the same rank(1) due to same points (361). The printing order is, '['epsilon', 'iota']'
-      * 2.02%, More than one team have the same rank(2) due to same points (186). The printing order is, '['epsilon', 'psi']'
-      * 2.02%, More than one team have the same rank(2) due to same points (230). The printing order is, '['iota', 'upsilon']'
-      * 2.02%, More than one team have the same rank(2) due to same points (248). The printing order is, '['iota', 'psi']'
-      * 2.02%, More than one team have the same rank(4) due to same points (49). The printing order is, '['alpha', 'epsilon']'
-      * 1.01%, More than one team have the same rank(1) due to same points (176). The printing order is, '['alpha', 'epsilon']'
-      * 1.01%, More than one team have the same rank(1) due to same points (330). The printing order is, '['alpha', 'iota']'
-      * 1.01%, More than one team have the same rank(1) due to same points (351). The printing order is, '['alpha', 'iota']'
-      * 1.01%, More than one team have the same rank(2) due to same points (235). The printing order is, '['epsilon', 'psi']'
-      * 1.01%, More than one team have the same rank(3) due to same points (106). The printing order is, '['alpha', 'epsilon']'
-      * 1.01%, More than one team have the same rank(3) due to same points (161). The printing order is, '['epsilon', 'iota']'
-      * 1.01%, More than one team have the same rank(3) due to same points (211). The printing order is, '['alpha', 'psi', 'upsilon']'
-      * 1.01%, More than one team have the same rank(3) due to same points (211). The printing order is, '['iota', 'psi']'
-      * 1.01%, More than one team have the same rank(3) due to same points (211). The printing order is, '['psi', 'upsilon']'
-      * 1.01%, More than one team have the same rank(3) due to same points (235). The printing order is, '['epsilon', 'psi']'
-      * 1.01%, More than one team have the same rank(3) due to same points (242). The printing order is, '['epsilon', 'iota']'
-      * 1.01%, More than one team have the same rank(3) due to same points (268). The printing order is, '['epsilon', 'upsilon']'
+      * 6.06%, 
+            More than one team have the same rank(1) due to same points (0).
+            The printing order is, '['alpha', 'epsilon', 'iota', 'psi', 'upsilon']'
+            
+      * 3.03%, 
+            More than one team have the same rank(1) due to same points (367).
+            The printing order is, '['alpha', 'upsilon']'
+            
+      * 2.02%, 
+            More than one team have the same rank(1) due to same points (233).
+            The printing order is, '['epsilon', 'psi']'
+            
+      * 2.02%, 
+            More than one team have the same rank(1) due to same points (248).
+            The printing order is, '['epsilon', 'psi']'
+            
+      * 2.02%, 
+            More than one team have the same rank(1) due to same points (271).
+            The printing order is, '['epsilon', 'psi']'
+            
+      * 2.02%, 
+            More than one team have the same rank(4) due to same points (116).
+            The printing order is, '['alpha', 'psi']'
+            
+      * 2.02%, 
+            More than one team have the same rank(4) due to same points (152).
+            The printing order is, '['alpha', 'psi']'
+            
+      * 2.02%, 
+            More than one team have the same rank(4) due to same points (33).
+            The printing order is, '['epsilon', 'iota']'
+            
+      * 1.01%, 
+            More than one team have the same rank(1) due to same points (285).
+            The printing order is, '['epsilon', 'iota']'
+            
+      * 1.01%, 
+            More than one team have the same rank(3) due to same points (178).
+            The printing order is, '['alpha', 'upsilon']'
+            
+      * 1.01%, 
+            More than one team have the same rank(4) due to same points (78).
+            The printing order is, '['epsilon', 'psi']'
+            
+      * 1.01%, 
+            More than one team have the same rank(4) due to same points (90).
+            The printing order is, '['iota', 'psi']'
+            
 
   - Stopped because settings.max_examples=100
 
 
-1 passed, 9 deselected in 0.22s
 </pre>
           </div>
         </div>
-        <div id="outline-container-org89ede31" class="outline-4">
-          <h4 id="org89ede31"><span class=
-          "section-number-4">4.2.7.</span> Testing with Mock
+        <div id="outline-container-orgdfd72c3" class="outline-4">
+          <h4 id="orgdfd72c3"><span class=
+          "section-number-4">4.4.8.</span> Testing with Mock
           Data</h4>
-          <div class="outline-text-4" id="text-4-2-7">
-            <ul class="org-ul"></ul>
+          <div class="outline-text-4" id="text-4-4-8">
+            <ul class="org-ul">
+              <li>A mock fixture to check whether the results are
+              reproducible</li>
+            </ul>
+            <div class="org-src-container">
+              <pre class="src src-bash">pytest -q tests/test_epl.py
+</pre>
+            </div>
+            <pre class="example">
+...                                                                      [100%]
+</pre>
           </div>
-        </div>
-      </div>
-    </div>
-    <div id="outline-container-orgb534c52" class="outline-2">
-      <h2 id="orgb534c52"><span class="section-number-2">5.</span>
-      Expected</h2>
-      <div class="outline-text-2" id="text-5"></div>
-      <div id="outline-container-org578eb73" class="outline-3">
-        <h3 id="org578eb73"><span class=
-        "section-number-3">5.1.</span> Thank you for your
-        interest</h3>
-        <div class="outline-text-3" id="text-5-1">
-          <p>Your submission will be run in a clean environment to
-          see if it produces the expected output. Please provide
-          instructions for installing any dependencies.</p>
-        </div>
-      </div>
-      <div id="outline-container-org0b6810b" class="outline-3">
-        <h3 id="org0b6810b"><span class=
-        "section-number-3">5.2.</span> What we look for</h3>
-        <div class="outline-text-3" id="text-5-2">
-          <p>We will be looking at the quality and professionalism
-          of your work. In particular we look for clean,
-          well-designed, maintainable code. Although this is a
-          rather small task, it should be approached as you would
-          an actual task for a customer.</p>
-          <p>We would like to see some architecture, but only as
-          much as reasonable. Your code shuold be easily extensible
-          without burdensome abstractions.</p>
-        </div>
-      </div>
-      <div id="outline-container-org684d4fe" class="outline-3">
-        <h3 id="org684d4fe"><span class=
-        "section-number-3">5.3.</span> When you are finished</h3>
-        <div class="outline-text-3" id="text-5-3">
-          <p>Please create a zip archive with your solution and
-          send it to us.</p>
-        </div>
-      </div>
-      <div id="outline-container-org773880f" class="outline-3">
-        <h3 id="org773880f"><span class=
-        "section-number-3">5.4.</span> The Problem</h3>
-        <div class="outline-text-3" id="text-5-4">
-          <p>We want you to create a command-line application that
-          will calculate the ranking table for a sports league.</p>
-        </div>
-      </div>
-      <div id="outline-container-org3ab7b8c" class="outline-3">
-        <h3 id="org3ab7b8c"><span class=
-        "section-number-3">5.5.</span> Input/output</h3>
-        <div class="outline-text-3" id="text-5-5">
-          <p>The input and output will be text. Your solution
-          should parse the provided sample-input.txt file via stdin
-          (pipe or redirect) or by parsing a file passed by name on
-          the command line. Your solution should output the correct
-          result via stdout to the console.</p>
-          <p>The input contains results of games, one per line. See
-          sample-input.txt for details. The output should be
-          ordered from most to least points, following the format
-          specified in expected-output.txt.</p>
-          <p>You can expect that the input will be well-formed.
-          There is no need to add special handling for malformed
-          input files.</p>
-        </div>
-      </div>
-      <div id="outline-container-org3076791" class="outline-3">
-        <h3 id="org3076791"><span class=
-        "section-number-3">5.6.</span> The rules</h3>
-        <div class="outline-text-3" id="text-5-6">
-          <p>A draw (tie) is worth 1 point and a win is worth 3
-          points. A loss is worth 0 points. If two or more teams
-          have the same number of points, they should have the same
-          rank and be printed in alphabetical order (as in the tie
-          for 3rd place in the sample data).</p>
-        </div>
-      </div>
-      <div id="outline-container-org77d825d" class="outline-3">
-        <h3 id="org77d825d"><span class=
-        "section-number-3">5.7.</span> Guidelines</h3>
-        <div class="outline-text-3" id="text-5-7">
-          <p>This should be implemented in Python 3.</p>
-          <p>Your solution should be able to be run from the
-          command line. Please include appropriate scripts and
-          instructions for running your application and your
-          tests.</p>
-          <p>We write automated tests, and we would like you to do
-          so as well.</p>
-          <p>We appreciate well factored, object-oriented or
-          functional designs.</p>
-          <p>Please document any steps necessary to run your
-          solution and your tests.</p>
-        </div>
-      </div>
-      <div id="outline-container-org0d8af08" class="outline-3">
-        <h3 id="org0d8af08"><span class=
-        "section-number-3">5.8.</span> Platform support</h3>
-        <div class="outline-text-3" id="text-5-8">
-          <p>This will be run in a unix-ish environment (OS X).</p>
         </div>
       </div>
     </div>
   </div>
   <div id="postamble" class="status">
     <p class="author">Author: Hari Prasad Radhakrishnan</p>
-    <p class="date">Created: 2021-10-31 Sun 01:23</p>
+    <p class="date">Created: 2021-10-31 Sun 11:48</p>
   </div>
 </body>
 </html>

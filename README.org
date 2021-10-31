@@ -1,0 +1,9 @@
+#+title: README
+
+* To run the code
+
+#+begin_src bash
+python main.py --input="data/sample-input.txt"
+#+end_src
+
+More details on the code can be found in the =./report.html= file.

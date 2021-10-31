@@ -47,9 +47,9 @@ class Record:
             raise TypeError("not a valid result type")
 
     def __eq__(self, other) -> bool:
-        w = self.wins == other.wins
-        d = self.draws == other.draws
-        l = self.losses == other.losses
+        w: bool = self.wins == other.wins
+        d: bool = self.draws == other.draws
+        l: bool = self.losses == other.losses
         return w and d and l
 
     def __post_init__(self) -> None:

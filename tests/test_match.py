@@ -22,8 +22,8 @@ def test_match_results(score1, score2, w1, d1, l1, w2, d2, l2):
     Alpha = Team("Alpha", Record(w1, d1, l1))
     Beta = Team("Beta", Record(w2, d2, l2))
 
-    A = TeamOnMatchDay(Alpha, score1)
-    B = TeamOnMatchDay(Beta, score2)
+    A = TeamOnMatchDay(Alpha.name, score1)
+    B = TeamOnMatchDay(Beta.name, score2)
     match = Match(A, B)
     Alpha.record.add_result(match.teamA.result)
     Beta.record.add_result(match.teamB.result)

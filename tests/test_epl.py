@@ -3,29 +3,7 @@ Testing current model against another ranking table
 """
 
 from typing import List
-
-import pytest
-
-from src.record import Record
-from src.team import Team
 from src.tournament import Ranking, Tournament
-
-
-@pytest.fixture
-def epl() -> Tournament:
-    """
-    creating a mock fixture and check
-    whether the results are reproducible
-    """
-    tmt = Tournament()
-    tmt.teams['arsenal'] = Team('arsenal', Record(5, 2, 3))
-    tmt.teams['chelsea'] = Team('chelsea', Record(8, 1, 1))
-    tmt.teams['manutd'] = Team('manutd', Record(5, 2, 3))
-    tmt.teams['mancity'] = Team('mancity', Record(6, 2, 2))
-    tmt.teams['spurs'] = Team('spurs', Record(5, 0, 5))
-    tmt.teams['liverpool'] = Team('liverpool', Record(6, 4, 0))
-    tmt.calibrateRankings()
-    return tmt
 
 
 def test_epl_same_points(epl: Tournament) -> None:
@@ -68,3 +46,16 @@ def test_epl_same_rankings(epl: Tournament) -> None:
         point = i[0].points
         for j in i:
             assert j.points == point
+
+
+def test_epl_ranking_idempotency(epl: Tournament) -> None:
+    old_list = epl.ranking_list
+
+    epl.calibrateRankings()
+    new_list = epl.ranking_list
+
+    epl.calibrateRankings()
+    epl.calibrateRankings()
+    newer_list = epl.ranking_list
+
+    assert newer_list == new_list == old_list

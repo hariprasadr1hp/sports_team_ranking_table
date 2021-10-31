@@ -18,3 +18,4 @@ build/
 data/
 info/
 literature/
+.coverage
